@@ -3,7 +3,7 @@ import Todo from "./sections/TodoSection";
 
 function App() {
   return (
-    <div className="App">
+    <div className="w-full flex items-center justify-center">
       <Todo />
     </div>
   );

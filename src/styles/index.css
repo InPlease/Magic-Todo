@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --fields-border-radious: 5px;
+
+  /* Theme */
+  --color-green: #5abf4b;
+  --color-beige: #d9c6b0;
+  --color-orange: #f25835;
+  --color-red: #cb2c1d;
+  --color-black: #0d0d0d;
+}
+
+body {
+  @apply bg-[var(--color-black)];
+}
+
+/* Headings Styles */
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600; /* Semi-bold (custom weight, adjust as needed) */
+  font-style: normal;
+}
+
+h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+h4 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+h5 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+h6 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300; /* Light */
+  font-style: italic; /* Italic for h6 */
+}
+
+/* Paragraph Styles */
+p,
+button {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+/* Buttons Style */
+
+.button-icon-left {
+  @apply flex border-2 border-[var(--fields-border-radious)] rounded-[var(--fields-border-radious)] items-center justify-between p-[5px_9px_5px_9px] h-[42px] m-[5px];
+}
+
+button {
+  @apply opacity-60 hover:opacity-100 ease-in-out duration-300 bg-[var(--color-orange)];
+}
+
+button:focus {
+  @apply border-[3px] border-solid border-[var(--color-red)];
+}
+
+input:focus,
+input:focus-visible {
+  @apply ease-in-out duration-300 border-[3px] border-solid border-[var(--color-red)] outline-none;
+}
+
+input:not([type='checkbox']) {
+  @apply border-[3px] border-[transparent] rounded-[var(--fields-border-radious)] min-h-[42px] p-[2px_14px_2px_23px] m-[5px];
+}
