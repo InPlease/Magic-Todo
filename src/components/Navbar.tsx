@@ -14,7 +14,7 @@ const ErrorImage: React.FC = () => {
         <h2 className="uppercase text-beige">
           Magic <span className="text-orange">Todo</span>
         </h2>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+        <div className="block" id="navbar-default">
           <button
             onClick={toggleLanguage}
             aria-label={

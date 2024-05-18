@@ -54,11 +54,11 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
           checked={task.completed}
           onClick={handleCheckboxClick}
           onChange={handleCheckboxChange}
-          className="cursor-pointer appearance-none min-h-5 min-w-5 border-2 border-beige rounded-full checked:bg-beige focus:outline-none"
+          className="cursor-pointer appearance-none border-2 border-beige rounded-full checked:bg-beige focus:outline-none"
           readOnly
         />
         <span
-          className="text-[1.2em] capitalize font-extrabold break-all text-beige"
+          className="xs:text-[0.9em] sm:text-[1.2em] capitalize font-extrabold break-all text-beige"
           style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
         >
           {task.text}

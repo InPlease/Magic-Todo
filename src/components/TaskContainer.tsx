@@ -41,36 +41,40 @@ const TaskList: React.FC<TaskListProps> = ({
   }, [sortedTasks, onToggle, onDelete, t])
   return (
     <section className="scroll-hide w-full max-w-maxpage p-[4px] scroll-smooth">
-      <div className="space-x-3 mb-[20px]">
-        <button
-          aria-label={t('sort_by_latest')}
-          className="rounded-default hover:text-white"
-          onClick={() => setSortOrder('latest')}
-        >
-          <ArrowDownNarrowWide />
-        </button>
-        <button
-          aria-label={t('sort_by_oldest')}
-          className="rounded-default hover:text-white"
-          onClick={() => setSortOrder('oldest')}
-        >
-          <ArrowDownWideNarrow />
-        </button>
-        <button
-          aria-label={t('sort_by_alpha')}
-          className="rounded-default hover:text-white"
-          onClick={() => setSortOrder('alpha')}
-        >
-          <ArrowDownAZ />
-        </button>
+      <div className="space-x-3 mb-[20px] flex justify-between ">
+        <div className="space-x-3">
+          <button
+            aria-label={t('sort_by_latest')}
+            className="rounded-default hover:text-white"
+            onClick={() => setSortOrder('latest')}
+          >
+            <ArrowDownNarrowWide />
+          </button>
+          <button
+            aria-label={t('sort_by_oldest')}
+            className="rounded-default hover:text-white"
+            onClick={() => setSortOrder('oldest')}
+          >
+            <ArrowDownWideNarrow />
+          </button>
+          <button
+            aria-label={t('sort_by_alpha')}
+            className="rounded-default hover:text-white"
+            onClick={() => setSortOrder('alpha')}
+          >
+            <ArrowDownAZ />
+          </button>
+        </div>
 
-        <button
-          aria-label={t('delete_all')}
-          className="rounded-default hover:text-white"
-          onClick={() => onDeleteAll()}
-        >
-          <X />
-        </button>
+        <div>
+          <button
+            aria-label={t('delete_all')}
+            className="rounded-default hover:text-white"
+            onClick={() => onDeleteAll()}
+          >
+            <X />
+          </button>
+        </div>
       </div>
       {renderedTasks}
     </section>

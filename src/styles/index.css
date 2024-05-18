@@ -48,7 +48,7 @@ input:not([type='checkbox']) {
 }
 /* Input Checkbox */
 input[type='checkbox'] {
-  @apply rounded-full border-[3px] border-solid border-red min-h-[42px] p-[2px_14px_2px_23px] m-[5px];
+  @apply rounded-full border-[3px] border-solid border-red xs:p-[21px_21px_5px_5px] sm:min-h-[42px] sm:p-[2px_14px_2px_23px] m-[5px];
 }
 input[type='checkbox']:checked {
   @apply bg-green border-[transparent];
