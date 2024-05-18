@@ -41,10 +41,10 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
     onToggle(task.id)
   }
   return (
-    <section className="my-[17px] transition-all hover:translate-y-[-12px]  w-full grid grid-cols-[80%_20%] border-[2px] border-[var(--color-beige)] rounded-[var(--fields-border-radious)]">
+    <section className="my-[17px] transition-all hover:translate-y-[-12px]  w-full grid grid-cols-[80%_20%] border-[2px] border-beige rounded-default">
       <div
         ref={taskRef}
-        className="bg-[var(--color-gray)] cursor-pointer p-[15px_4px_15px_7px] flex items-center space-x-2"
+        className="bg-gray cursor-pointer p-[15px_4px_15px_7px] flex items-center space-x-2"
         onClick={() => onToggle(task.id)}
       >
         <input
@@ -52,11 +52,11 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
           checked={task.completed}
           onClick={handleCheckboxClick}
           onChange={handleCheckboxChange}
-          className="cursor-pointer appearance-none min-h-5 min-w-5 border-2 border-[var(--color-beige)] rounded-full checked:bg-[var(--color-beige)] focus:outline-none"
+          className="cursor-pointer appearance-none min-h-5 min-w-5 border-2 border-beige rounded-full checked:bg-beige focus:outline-none"
           readOnly
         />
         <span
-          className="text-[1.2em] capitalize font-extrabold break-all text-[var(--color-beige)]"
+          className="text-[1.2em] capitalize font-extrabold break-all text-beige"
           style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
         >
           {task.text}

@@ -4,17 +4,9 @@
 @tailwind utilities;
 :root {
   --fields-border-radious: 5px;
-
-  /* Theme */
-  --color-green: #5abf4b;
-  --color-beige: #d9c6b0;
-  --color-orange: #f25835;
-  --color-red: #cb2c1d;
-  --color-black: #0d0d0d;
-  --color-gray: #1e1e1e;
 }
 body {
-  @apply bg-[var(--color-black)];
+  @apply bg-black;
 }
 /* Headings Styles */
 h1 {
@@ -36,25 +28,25 @@ button {
 }
 /* Buttons Style */
 .button-icon-left {
-  @apply flex border-2 border-[var(--fields-border-radious)] rounded-[var(--fields-border-radious)] items-center justify-between p-[5px_9px_5px_9px] h-[42px] m-[5px];
+  @apply flex border-2  rounded-default items-center justify-between p-[5px_9px_5px_9px] h-[42px] m-[5px];
 }
 button {
-  @apply opacity-60  border-[3px] border-solid border-[transparent] hover:opacity-100 ease-in-out duration-300 bg-[var(--color-orange)];
+  @apply opacity-60  border-[3px] border-solid border-[transparent] hover:opacity-100 ease-in-out duration-300 bg-orange;
 }
 button:focus {
-  @apply bg-[var(--color-red)] opacity-100;
+  @apply bg-red opacity-100;
 }
 input:focus,
 input:focus-visible {
-  @apply ease-in-out duration-300 border-[3px] border-solid border-[var(--color-red)] outline-none;
+  @apply ease-in-out duration-300 border-[3px] border-solid border-red outline-none;
 }
 input:not([type='checkbox']) {
-  @apply border-[3px] border-[transparent] rounded-[var(--fields-border-radious)] min-h-[42px] p-[2px_14px_2px_23px] m-[5px];
+  @apply border-[3px] border-[transparent] rounded-default min-h-[42px] p-[2px_14px_2px_23px] m-[5px];
 }
 /* Input Checkbox */
 input[type='checkbox'] {
-  @apply rounded-full border-[3px] border-solid border-[var(--color-red)] min-h-[42px] p-[2px_14px_2px_23px] m-[5px];
+  @apply rounded-full border-[3px] border-solid border-red min-h-[42px] p-[2px_14px_2px_23px] m-[5px];
 }
 input[type='checkbox']:checked {
-  @apply bg-[var(--color-green)] border-[transparent];
+  @apply bg-green border-[transparent];
 }
