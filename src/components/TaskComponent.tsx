@@ -10,7 +10,7 @@ interface TaskProps {
 }
 const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
   const taskRef = useRef<HTMLDivElement>(null)
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   useEffect(() => {
     if (taskRef.current) {
       anime({

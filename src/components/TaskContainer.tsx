@@ -17,7 +17,7 @@ interface TaskListProps {
 }
 const TaskList: React.FC<TaskListProps> = ({ tasks, onToggle, onDelete }) => {
   const { t } = useTranslation()
-  const { sortedTasks, sortOrder, setSortOrder } = useSortedTasks(tasks)
+  const { sortedTasks, setSortOrder } = useSortedTasks(tasks)
 
   const renderedTasks = useMemo(() => {
     return sortedTasks.length ? (
