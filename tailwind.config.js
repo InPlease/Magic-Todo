@@ -30,6 +30,9 @@ module.exports = {
       maxWidth: {
         maxpage: '500px',
       },
+      maxHeight: {
+        maxpage: '500px',
+      },
     },
     borderRadius: {
       full: '100px',
