@@ -17,6 +17,12 @@ module.exports = {
         sans: ['Ubuntu', 'sans-serif'],
       },
     },
+    width: {
+      full: '100%',
+    },
+    maxWidth: {
+      maxpage: '500px',
+    },
   },
   plugins: [],
 }

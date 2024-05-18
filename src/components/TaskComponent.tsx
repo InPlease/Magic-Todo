@@ -2,16 +2,13 @@
 import React, { useEffect, useRef } from 'react'
 import anime from 'animejs/lib/anime.es.js'
 import { Trash2 } from 'lucide-react'
-
 interface TaskProps {
   task: { id: number; text: string; completed: boolean }
   onToggle: (id: number) => void
   onDelete: (id: number) => void
 }
-
 const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
   const taskRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
     if (taskRef.current) {
       anime({
@@ -23,7 +20,6 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
       })
     }
   }, [])
-
   const handleDelete = () => {
     if (taskRef.current) {
       anime({
@@ -38,17 +34,14 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
       })
     }
   }
-
   const handleCheckboxClick = (e: React.MouseEvent) => {
     e.stopPropagation()
   }
-
   const handleCheckboxChange = () => {
     onToggle(task.id)
   }
-
   return (
-    <div className="my-[17px] transition-all hover:translate-y-[-12px] max-w-[500px] w-full grid grid-cols-[80%_20%] border-[2px] border-[var(--color-beige)] rounded-[var(--fields-border-radious)]">
+    <section className="my-[17px] transition-all hover:translate-y-[-12px]  w-full grid grid-cols-[80%_20%] border-[2px] border-[var(--color-beige)] rounded-[var(--fields-border-radious)]">
       <div
         ref={taskRef}
         className="bg-[var(--color-gray)] cursor-pointer p-[15px_4px_15px_7px] flex items-center space-x-2"
@@ -77,8 +70,7 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
           <Trash2 />
         </button>
       </div>
-    </div>
+    </section>
   )
 }
-
 export default Task

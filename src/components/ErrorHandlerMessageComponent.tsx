@@ -1,9 +1,8 @@
 // Dependencies
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, Suspense, lazy } from 'react'
 import anime from 'animejs'
 
-// Gifs
-import error from '../assets/gifs/error.gif'
+const ErrorImage = lazy(() => import('./ErrorImageComponent'))
 
 interface ErrorHandlerMessageComponentInterface {
   message: string
@@ -16,29 +15,34 @@ const ErrorHandlerMessageComponent: React.FC<
 
   useEffect(() => {
     if (messageRef.current) {
-      anime({
+      const animation = anime({
         targets: messageRef.current,
         opacity: [0, 1],
         translateY: [-20, 0],
         easing: 'easeOutExpo',
         duration: 500,
       })
+
+      return () => {
+        animation.pause()
+      }
     }
   }, [])
 
   return (
-    <div
+    <section
       ref={messageRef}
-      className="text-white font-extrabold text-center space-y-5 flex justify-center items-center flex-col"
+      className="max-w-maxpage text-white font-extrabold text-center space-y-5 flex justify-center items-center flex-col"
     >
-      <div>{message}</div>
-      <div>
-        <img
-          alt="error image, comedy action saying 'You need to relax'"
-          src={error}
-        />
+      <div role="alert" aria-live="assertive">
+        {message}
       </div>
-    </div>
+      <div>
+        <Suspense fallback={<div></div>}>
+          <ErrorImage />
+        </Suspense>
+      </div>
+    </section>
   )
 }
 

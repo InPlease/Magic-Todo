@@ -31,7 +31,7 @@ const TodoSection: React.FC = () => {
   }
 
   return (
-    <div className="w-full max-w-[500px]">
+    <>
       <TaskCounted />
       <TaskForm onAdd={addTask} />
       <TaskList
@@ -39,7 +39,7 @@ const TodoSection: React.FC = () => {
         onToggle={toggleTask}
         onDelete={deleteTask}
       />
-    </div>
+    </>
   )
 }
 

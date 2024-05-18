@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useReducer, ReactNode } from 'react'
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  ReactNode,
+  useEffect,
+} from 'react'
 
 interface Task {
   id: number
@@ -51,10 +57,15 @@ const taskReducer = (state: TaskState, action: TaskAction): TaskState => {
   }
 }
 
-export const TaskProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [state, dispatch] = useReducer(taskReducer, initialState)
+const TaskProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [state, dispatch] = useReducer(taskReducer, initialState, (initial) => {
+    const storedTasks = localStorage.getItem('tasks')
+    return storedTasks ? { tasks: JSON.parse(storedTasks) } : initial
+  })
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(state.tasks))
+  }, [state.tasks])
 
   return (
     <TaskContext.Provider value={{ state, dispatch }}>
@@ -64,3 +75,4 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
 }
 
 export const useTaskContext = () => useContext(TaskContext)
+export default TaskProvider
