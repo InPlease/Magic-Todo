@@ -12,4 +12,7 @@ npm install
 
 ## Take a look to my SEO!
 
-![vMe-Frontend Demo](https://github.com/karttofer/vMe-Frontend/assets/34972636/a2b1c2dc-8f50-427d-83f8-8151ae340189)
+
+https://github.com/karttofer/savant-todo/assets/34972636/8d2765b6-0da0-4e0a-aa63-438a93699709
+
+
