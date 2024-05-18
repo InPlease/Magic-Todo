@@ -4,6 +4,7 @@ import {
   ArrowDownNarrowWide,
   ArrowDownWideNarrow,
   ArrowDownAZ,
+  X,
 } from 'lucide-react'
 import useSortedTasks from '../hooks/useSortedTasks'
 // Components
@@ -14,8 +15,14 @@ interface TaskListProps {
   tasks: { id: number; text: string; completed: boolean; createdAt: string }[]
   onToggle: (id: number) => void
   onDelete: (id: number) => void
+  onDeleteAll: () => void
 }
-const TaskList: React.FC<TaskListProps> = ({ tasks, onToggle, onDelete }) => {
+const TaskList: React.FC<TaskListProps> = ({
+  tasks,
+  onToggle,
+  onDelete,
+  onDeleteAll,
+}) => {
   const { t } = useTranslation()
   const { sortedTasks, setSortOrder } = useSortedTasks(tasks)
 
@@ -56,6 +63,14 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onToggle, onDelete }) => {
           onClick={() => setSortOrder('alpha')}
         >
           <ArrowDownAZ />
+        </button>
+
+        <button
+          aria-label={t('delete_all')}
+          className="rounded-default hover:text-white"
+          onClick={() => onDeleteAll()}
+        >
+          <X />
         </button>
       </div>
       {renderedTasks}

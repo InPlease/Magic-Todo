@@ -2,18 +2,17 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 // Gif
-import error from '../assets/gifs/error.gif'
-const ErrorImage: React.FC = () => {
+import errorImage from '../assets/image/error_image.webp'
+
+const ErrorImageComponent: React.FC = () => {
   const { t } = useTranslation()
   return (
     <img
       alt={t('alt_not_elements')}
-      src={error}
+      src={errorImage}
       width="500"
       height="280"
-      loading="lazy"
-      decoding="async"
     />
   )
 }
-export default ErrorImage
+export default ErrorImageComponent

@@ -26,6 +26,7 @@ i18n.use(initReactI18next).init({
         change_language_to_english: 'Cambiar idioma a Inglés',
         delete_task: 'Delete task',
         back_to_top: 'Back to top',
+        delete_all: 'Delete all task',
       },
     },
     es: {
@@ -46,6 +47,7 @@ i18n.use(initReactI18next).init({
         change_language_to_english: 'Cambiar idioma a Inglés',
         delete_task: 'Eliminar tarea',
         back_to_top: 'Volver arriba',
+        delete_all: 'Eliminar todos las task',
       },
     },
   },

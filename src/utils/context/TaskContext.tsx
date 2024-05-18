@@ -8,7 +8,12 @@ import React, {
 } from 'react'
 
 // Constants
-import { ADD_TASK, TOGGLE_TASK, DELETE_TASK } from '../constants/contants'
+import {
+  ADD_TASK,
+  DELETE_ALL,
+  TOGGLE_TASK,
+  DELETE_TASK,
+} from '../constants/contants'
 
 interface Task {
   id: number
@@ -22,7 +27,7 @@ interface TaskState {
 }
 
 interface TaskAction {
-  type: 'ADD_TASK' | 'TOGGLE_TASK' | 'DELETE_TASK'
+  type: 'ADD_TASK' | 'DELETE_ALL' | 'TOGGLE_TASK' | 'DELETE_TASK'
   payload: any
 }
 
@@ -48,6 +53,8 @@ const taskReducer = (state: TaskState, action: TaskAction): TaskState => {
         createdAt: new Date().toISOString(),
       }
       return { tasks: [...state.tasks, newTask] }
+    case DELETE_ALL:
+      return { tasks: [] }
     case TOGGLE_TASK:
       return {
         tasks: state.tasks.map((task) =>
