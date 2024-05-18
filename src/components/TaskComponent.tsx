@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react'
 import anime from 'animejs/lib/anime.es.js'
 import { Trash2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 interface TaskProps {
   task: { id: number; text: string; completed: boolean }
   onToggle: (id: number) => void
@@ -9,6 +10,7 @@ interface TaskProps {
 }
 const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
   const taskRef = useRef<HTMLDivElement>(null)
+  const { t, i18n } = useTranslation()
   useEffect(() => {
     if (taskRef.current) {
       anime({
@@ -66,6 +68,7 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
         <button
           className="flex justify-center items-center text-white w-full h-full"
           onClick={handleDelete}
+          aria-label={t('delete_task')}
         >
           <Trash2 />
         </button>

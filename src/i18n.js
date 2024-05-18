@@ -24,14 +24,16 @@ i18n.use(initReactI18next).init({
         sort_by_alpha: 'Sort alphabetically',
         change_language_to_spanish: 'Change language to Spanish',
         change_language_to_english: 'Cambiar idioma a Inglés',
+        delete_task: 'Delete task',
+        back_to_top: 'Back to top',
       },
     },
     es: {
       translation: {
-        task_done: 'Tareas por terminal',
+        task_done: 'Tareas por terminar',
         task_done_subtitle: 'Tu puedes!',
         empty_task:
-          'Aunque no pudiste encontar alguna tarea, deberías intentar crear alguna :)',
+          'Aunque no pudiste encontrar alguna tarea, deberías intentar crear alguna :)',
         placeholder_create_task: 'escribe tu siguiente tarea',
         aria_add_task: 'botón para agregar una tarea',
         aria_input_add_task: 'campo para agregar la descripción de la tarea',
@@ -42,6 +44,8 @@ i18n.use(initReactI18next).init({
         sort_by_alpha: 'Ordena alfabéticamente',
         change_language_to_spanish: 'Change language to Spanish',
         change_language_to_english: 'Cambiar idioma a Inglés',
+        delete_task: 'Eliminar tarea',
+        back_to_top: 'Volver arriba',
       },
     },
   },

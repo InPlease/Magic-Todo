@@ -20,16 +20,21 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAdd }) => {
       <form onSubmit={handleSubmit} className="w-full max-w-maxpage">
         <div className="w-full mb-6">
           <div className="flex justify-center items-center">
+            <label htmlFor="task-input" className="sr-only">
+              {t('aria_input_add_task')}
+            </label>
             <input
+              id="task-input"
               tabIndex={0}
               type="text"
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder={t('placeholder_create_task')}
               className="w-full rounded-full"
-              aria-describedby={t('aria_input_add_task')}
+              aria-describedby="task-input-description"
             />
             <button
+              id="add-task-button"
               tabIndex={0}
               type="submit"
               className="h-full button-icon-left"
@@ -39,6 +44,9 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAdd }) => {
             </button>
           </div>
         </div>
+        <p id="task-input-description" className="sr-only">
+          {t('aria_input_add_task')}
+        </p>
       </form>
     </section>
   )
