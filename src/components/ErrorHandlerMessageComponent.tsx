@@ -1,13 +1,10 @@
 // Dependencies
 import React, { useEffect, useRef, Suspense, lazy } from 'react'
 import anime from 'animejs'
-
 const ErrorImage = lazy(() => import('./ErrorImageComponent'))
-
 interface ErrorHandlerMessageComponentInterface {
   message: string
 }
-
 const ErrorHandlerMessageComponent: React.FC<
   ErrorHandlerMessageComponentInterface
 > = ({ message }) => {
@@ -22,13 +19,11 @@ const ErrorHandlerMessageComponent: React.FC<
         easing: 'easeOutExpo',
         duration: 500,
       })
-
       return () => {
         animation.pause()
       }
     }
   }, [])
-
   return (
     <section
       ref={messageRef}
@@ -45,5 +40,4 @@ const ErrorHandlerMessageComponent: React.FC<
     </section>
   )
 }
-
 export default ErrorHandlerMessageComponent

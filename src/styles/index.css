@@ -5,8 +5,10 @@
 :root {
   --fields-border-radious: 5px;
 }
-body {
+body,
+html {
   @apply bg-black;
+  scrollbar-width: none;
 }
 /* Headings Styles */
 h1 {
@@ -30,10 +32,11 @@ button {
 .button-icon-left {
   @apply flex border-2  rounded-default items-center justify-between p-[5px_9px_5px_9px] h-[42px] m-[5px];
 }
-button {
+button,
+button:not([id='back_top_btn']) {
   @apply opacity-60  border-[3px] border-solid border-[transparent] hover:opacity-100 ease-in-out duration-300 bg-orange;
 }
-button:focus {
+button:focus:not([id='back_top_btn']) {
   @apply bg-red opacity-100;
 }
 input:focus,
@@ -49,8 +52,4 @@ input[type='checkbox'] {
 }
 input[type='checkbox']:checked {
   @apply bg-green border-[transparent];
-}
-/* Out of Tailwind */
-.scroll-hide {
-  scrollbar-width: none;
 }

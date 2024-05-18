@@ -1,6 +1,7 @@
 // Components
 import TodoSection from './sections/TodoSection'
 import Navbar from './components/Navbar'
+import BackToTopButton from './components/BackToTheTop'
 // State
 import TaskProvider from './util/TaskContext'
 
@@ -15,6 +16,9 @@ function App() {
           <TodoSection />
         </TaskProvider>
       </main>
+      <footer>
+        <BackToTopButton />
+      </footer>
     </>
   )
 }

@@ -25,7 +25,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onToggle, onDelete }) => {
     )
   }, [tasks, onToggle, onDelete, t])
   return (
-    <section className="scroll-hide w-full max-w-maxpage max-h-maxpage p-[4px] scroll-smooth overflow-auto">
+    <section className="scroll-hide w-full max-w-maxpage p-[4px] scroll-smooth">
       {renderedTasks}
     </section>
   )

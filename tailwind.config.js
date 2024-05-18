@@ -21,7 +21,7 @@ module.exports = {
         beige: '#d9c6b0',
         orange: '#f25835',
         red: '#cb2c1d',
-        black: '#0d0d0d',
+        black: '#121212',
         gray: '#1e1e1e',
       },
       width: {

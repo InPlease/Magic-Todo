@@ -1,10 +1,8 @@
 // Dependencies
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-
 // Gif
 import error from '../assets/gifs/error.gif'
-
 const ErrorImage: React.FC = () => {
   const { t } = useTranslation()
   return (
@@ -18,5 +16,4 @@ const ErrorImage: React.FC = () => {
     />
   )
 }
-
 export default ErrorImage
