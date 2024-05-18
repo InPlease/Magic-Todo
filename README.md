@@ -16,7 +16,14 @@ npm install
 ## Take a look to my SEO!
 
 
-![Screenshot 2024-05-18 170039](https://github.com/karttofer/savant-todo/assets/34972636/af1702ec-a1c3-4b43-a5b9-c35a1ae6ea0f)
+This is only on dekstop - We can improve optimization the only ones that isn't in green but almost there. </br>
+
+
+https://github.com/karttofer/savant-todo/assets/34972636/8082d953-f3a5-4675-9022-9f382f1865cd
+
+
+
+
 
 
 
