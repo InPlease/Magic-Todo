@@ -10,6 +10,9 @@ This project doesn't have routes with React Router because it's really just a si
 npm install
 ```
 
+## If you don't want to run it just visit the website
+<a href="https://savant-test.netlify.app/" _target="_blank">Just click here to visit the website :)</a>
+
 ## Take a look to my SEO!
 
 
