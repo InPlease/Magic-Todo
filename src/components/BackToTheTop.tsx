@@ -1,6 +1,6 @@
 // Dependencies
 import React, { useState, useEffect } from 'react'
-import { MoveUpLeft } from 'lucide-react'
+import { ArrowUpLeft } from 'lucide-react'
 const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false)
   useEffect(() => {
@@ -30,7 +30,7 @@ const BackToTopButton: React.FC = () => {
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <MoveUpLeft size={24} />
+      <ArrowUpLeft size={24} />
     </button>
   )
 }
