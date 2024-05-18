@@ -5,7 +5,7 @@ import TaskList from '../components/TaskContainer'
 import TaskForm from '../components/TaskFormulary'
 import TaskCounted from '../components/TaskCounter'
 // State
-import { useTaskContext } from '../util/TaskContext'
+import { useTaskContext } from '../utils/context/TaskContext'
 const TodoSection: React.FC = () => {
   const { state, dispatch } = useTaskContext()
   const addTask = (text: string) => {

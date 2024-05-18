@@ -2,7 +2,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 // State
-import { useTaskContext } from '../util/TaskContext'
+import { useTaskContext } from '../utils/context/TaskContext'
 const TaskCounter: React.FC = () => {
   const { state } = useTaskContext()
   const { t } = useTranslation()

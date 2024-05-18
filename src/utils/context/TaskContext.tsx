@@ -1,3 +1,4 @@
+// Dependencies
 import React, {
   createContext,
   useContext,
@@ -6,10 +7,14 @@ import React, {
   useEffect,
 } from 'react'
 
+// Constants
+import { ADD_TASK, TOGGLE_TASK, DELETE_TASK } from '../constants/contants'
+
 interface Task {
   id: number
   text: string
   completed: boolean
+  createdAt: string
 }
 
 interface TaskState {
@@ -35,14 +40,15 @@ const TaskContext = createContext<{
 
 const taskReducer = (state: TaskState, action: TaskAction): TaskState => {
   switch (action.type) {
-    case 'ADD_TASK':
+    case ADD_TASK:
       const newTask: Task = {
         id: Date.now(),
         text: action.payload,
         completed: false,
+        createdAt: new Date().toISOString(),
       }
       return { tasks: [...state.tasks, newTask] }
-    case 'TOGGLE_TASK':
+    case TOGGLE_TASK:
       return {
         tasks: state.tasks.map((task) =>
           task.id === action.payload
@@ -50,7 +56,7 @@ const taskReducer = (state: TaskState, action: TaskAction): TaskState => {
             : task
         ),
       }
-    case 'DELETE_TASK':
+    case DELETE_TASK:
       return { tasks: state.tasks.filter((task) => task.id !== action.payload) }
     default:
       return state

@@ -3,7 +3,7 @@ import TodoSection from './sections/TodoSection'
 import Navbar from './components/Navbar'
 import BackToTopButton from './components/BackToTheTop'
 // State
-import TaskProvider from './util/TaskContext'
+import TaskProvider from './utils/context/TaskContext'
 
 function App() {
   return (
