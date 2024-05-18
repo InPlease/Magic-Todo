@@ -16,6 +16,7 @@ npm install
 ## Take a look to my SEO!
 
 
-https://github.com/karttofer/savant-todo/assets/34972636/8d2765b6-0da0-4e0a-aa63-438a93699709
+![Screenshot 2024-05-18 170039](https://github.com/karttofer/savant-todo/assets/34972636/af1702ec-a1c3-4b43-a5b9-c35a1ae6ea0f)
+
 
 
