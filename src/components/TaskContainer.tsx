@@ -24,7 +24,11 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onToggle, onDelete }) => {
       <ErrorHandlerMessageComponent message={t('empty_task')} />
     )
   }, [tasks, onToggle, onDelete, t])
-  return <section className="w-full max-w-maxpage">{renderedTasks}</section>
+  return (
+    <section className="scroll-hide w-full max-w-maxpage max-h-maxpage">
+      {renderedTasks}
+    </section>
+  )
 }
 
 export default TaskList

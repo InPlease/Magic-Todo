@@ -50,3 +50,7 @@ input[type='checkbox'] {
 input[type='checkbox']:checked {
   @apply bg-green border-[transparent];
 }
+/* Out of Tailwind */
+.scroll-hide {
+  scrollbar-width: none;
+}
