@@ -1,18 +1,14 @@
 // Dependencies
 import React, { useEffect, useRef, Suspense, lazy, memo } from 'react'
 import anime from 'animejs'
-
 const ErrorImage = lazy(() => import('./ErrorImageComponent'))
-
 interface ErrorHandlerMessageComponentInterface {
   message: string
 }
-
 const ErrorHandlerMessageComponent: React.FC<
   ErrorHandlerMessageComponentInterface
 > = ({ message }) => {
   const messageRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
     if (messageRef.current) {
       const animation = anime({
@@ -27,7 +23,6 @@ const ErrorHandlerMessageComponent: React.FC<
       }
     }
   }, [])
-
   return (
     <section
       ref={messageRef}

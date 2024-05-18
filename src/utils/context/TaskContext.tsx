@@ -6,7 +6,6 @@ import React, {
   ReactNode,
   useEffect,
 } from 'react'
-
 // Constants
 import {
   ADD_TASK,
@@ -14,27 +13,22 @@ import {
   TOGGLE_TASK,
   DELETE_TASK,
 } from '../constants/contants'
-
 interface Task {
   id: number
   text: string
   completed: boolean
   createdAt: string
 }
-
 interface TaskState {
   tasks: Task[]
 }
-
 interface TaskAction {
   type: 'ADD_TASK' | 'DELETE_ALL' | 'TOGGLE_TASK' | 'DELETE_TASK'
   payload: any
 }
-
 const initialState: TaskState = {
   tasks: [],
 }
-
 const TaskContext = createContext<{
   state: TaskState
   dispatch: React.Dispatch<TaskAction>
@@ -42,7 +36,6 @@ const TaskContext = createContext<{
   state: initialState,
   dispatch: () => null,
 })
-
 const taskReducer = (state: TaskState, action: TaskAction): TaskState => {
   switch (action.type) {
     case ADD_TASK:
@@ -69,7 +62,6 @@ const taskReducer = (state: TaskState, action: TaskAction): TaskState => {
       return state
   }
 }
-
 const TaskProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(taskReducer, initialState, (initial) => {
     const storedTasks = localStorage.getItem('tasks')
@@ -86,6 +78,5 @@ const TaskProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     </TaskContext.Provider>
   )
 }
-
 export const useTaskContext = () => useContext(TaskContext)
 export default TaskProvider

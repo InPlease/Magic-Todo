@@ -10,7 +10,6 @@ import useSortedTasks from '../hooks/useSortedTasks'
 // Components
 import TaskComponent from './TaskComponent'
 import ErrorHandlerMessageComponent from './ErrorHandlerMessageComponent'
-
 interface TaskListProps {
   tasks: { id: number; text: string; completed: boolean; createdAt: string }[]
   onToggle: (id: number) => void

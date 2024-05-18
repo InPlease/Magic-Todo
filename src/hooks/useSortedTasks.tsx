@@ -1,10 +1,9 @@
+// Dependencies
 import { useState, useMemo } from 'react'
-
 const useSortedTasks = (tasks: any) => {
   const [sortOrder, setSortOrder] = useState<'latest' | 'oldest' | 'alpha'>(
     'latest'
   )
-
   const sortedTasks = useMemo(() => {
     let sorted = [...tasks]
     if (sortOrder === 'latest') {
@@ -25,5 +24,4 @@ const useSortedTasks = (tasks: any) => {
 
   return { sortedTasks, sortOrder, setSortOrder }
 }
-
 export default useSortedTasks
