@@ -1,9 +1,6 @@
 // Dependencies
 import React from 'react'
-import { useTranslation } from 'react-i18next'
-
 const ErrorImage: React.FC = () => {
-  const { t } = useTranslation()
   return (
     <nav>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -18,5 +15,4 @@ const ErrorImage: React.FC = () => {
     </nav>
   )
 }
-
 export default ErrorImage
