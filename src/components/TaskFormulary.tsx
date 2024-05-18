@@ -1,6 +1,7 @@
 // Dependencies
 import { Plus } from 'lucide-react'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface TaskFormProps {
   onAdd: (text: string) => void
@@ -8,6 +9,7 @@ interface TaskFormProps {
 
 const TaskForm: React.FC<TaskFormProps> = ({ onAdd }) => {
   const [text, setText] = useState('')
+  const { t } = useTranslation()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,16 +27,13 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAdd }) => {
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="write you next task"
-            className="rounded-full"
+            placeholder={t('placeholder_create_task')}
+            className="w-full rounded-full"
           />
-          <button type="submit" className="button-icon-left">
+          <button type="submit" className="h-full button-icon-left">
             <Plus />
           </button>
         </div>
-        {/* <p className="mt-2 text-sm text-green-600 dark:text-green-500">
-          <span className="font-medium">Well done!</span> Some success message.
-        </p> */}
       </div>
     </form>
   )

@@ -39,23 +39,31 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
     }
   }
 
+  const handleCheckboxClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+  }
+
+  const handleCheckboxChange = () => {
+    onToggle(task.id)
+  }
+
   return (
-    <div
-      onClick={() => onToggle(task.id)}
-      className="max-w-[500px] w-full grid grid-cols-[80%_20%] border-[2px] border-[var(--color-beige)] rounded-[var(--fields-border-radious)]"
-    >
+    <div className="my-[17px] transition-all hover:translate-y-[-12px] max-w-[500px] w-full grid grid-cols-[80%_20%] border-[2px] border-[var(--color-beige)] rounded-[var(--fields-border-radious)]">
       <div
         ref={taskRef}
-        className="cursor-pointer p-[15px_4px_15px_7px] flex items-center space-x-2"
+        className="bg-[var(--color-gray)] cursor-pointer p-[15px_4px_15px_7px] flex items-center space-x-2"
+        onClick={() => onToggle(task.id)}
       >
         <input
           type="checkbox"
           checked={task.completed}
-          onChange={() => onToggle(task.id)}
+          onClick={handleCheckboxClick}
+          onChange={handleCheckboxChange}
           className="cursor-pointer appearance-none min-h-5 min-w-5 border-2 border-[var(--color-beige)] rounded-full checked:bg-[var(--color-beige)] focus:outline-none"
+          readOnly
         />
         <span
-          className="break-all text-[var(--color-beige)]"
+          className="text-[1.2em] capitalize font-extrabold break-all text-[var(--color-beige)]"
           style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
         >
           {task.text}

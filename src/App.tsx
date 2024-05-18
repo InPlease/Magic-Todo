@@ -1,12 +1,14 @@
-import React from "react";
-import Todo from "./sections/TodoSection";
+import Todo from './sections/TodoSection'
+import { TaskProvider } from './util/TaskContext'
 
 function App() {
   return (
-    <div className="w-full flex items-center justify-center">
-      <Todo />
-    </div>
-  );
+    <main className="w-full flex items-center justify-center p-10">
+      <TaskProvider>
+        <Todo />
+      </TaskProvider>
+    </main>
+  )
 }
 
-export default App;
+export default App
