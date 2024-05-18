@@ -1,44 +1,46 @@
-import React, { useState } from "react";
-import TaskList from "../components/TaskContainer";
-import TaskForm from "../components/TaskFormulary";
+// Dependencies
+import React from 'react'
+
+// Components
+import TaskList from '../components/TaskContainer'
+import TaskForm from '../components/TaskFormulary'
+import TaskCounted from '../components/TaskCounter'
+
+// State
+import { useTaskContext } from '../util/TaskContext'
 
 interface Task {
-  id: number;
-  text: string;
-  completed: boolean;
+  id: number
+  text: string
+  completed: boolean
 }
 
 const TodoSection: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const { state, dispatch } = useTaskContext()
 
   const addTask = (text: string) => {
-    const newTask = {
-      id: Date.now(),
-      text,
-      completed: false,
-    };
-    setTasks([...tasks, newTask]);
-  };
+    dispatch({ type: 'ADD_TASK', payload: text })
+  }
 
   const toggleTask = (id: number) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
-    );
-  };
+    dispatch({ type: 'TOGGLE_TASK', payload: id })
+  }
 
   const deleteTask = (id: number) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
+    dispatch({ type: 'DELETE_TASK', payload: id })
+  }
 
   return (
-    <div className="app">
-      <h1>Lista de Tareas</h1>
+    <>
+      <TaskCounted />
       <TaskForm onAdd={addTask} />
-      <TaskList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
-    </div>
-  );
-};
+      <TaskList
+        tasks={state.tasks}
+        onToggle={toggleTask}
+        onDelete={deleteTask}
+      />
+    </>
+  )
+}
 
-export default TodoSection;
+export default TodoSection

@@ -1,25 +1,30 @@
-import React from "react";
-import TaskComponent from "./TaskComponent";
-
+import React, { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+// Components
+import TaskComponent from './TaskComponent'
+import ErrorHandlerMessageComponent from './ErrorHandlerMessageComponent'
 interface TaskListProps {
-  tasks: { id: number; text: string; completed: boolean }[];
-  onToggle: (id: number) => void;
-  onDelete: (id: number) => void;
+  tasks: { id: number; text: string; completed: boolean }[]
+  onToggle: (id: number) => void
+  onDelete: (id: number) => void
 }
-
 const TaskList: React.FC<TaskListProps> = ({ tasks, onToggle, onDelete }) => {
-  return (
-    <div className="task-list">
-      {tasks.map((task) => (
+  const { t } = useTranslation()
+  const renderedTasks = useMemo(() => {
+    return tasks.length ? (
+      tasks.map((task) => (
         <TaskComponent
           key={task.id}
           task={task}
           onToggle={onToggle}
           onDelete={onDelete}
         />
-      ))}
-    </div>
-  );
-};
+      ))
+    ) : (
+      <ErrorHandlerMessageComponent message={t('empty_task')} />
+    )
+  }, [tasks, onToggle, onDelete, t])
+  return <section className="w-full max-w-maxpage">{renderedTasks}</section>
+}
 
-export default TaskList;
+export default TaskList
