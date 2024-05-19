@@ -34,6 +34,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAdd }) => {
               aria-describedby="task-input-description"
             />
             <button
+              disabled={!text}
               id="add-task-button"
               tabIndex={0}
               type="submit"

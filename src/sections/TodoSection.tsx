@@ -1,5 +1,6 @@
 // Dependencies
 import React from 'react'
+import useSound from 'use-sound'
 // Components
 import TaskList from '../components/TaskContainer'
 import TaskForm from '../components/TaskFormulary'
@@ -13,11 +14,16 @@ import {
   TOGGLE_TASK,
   DELETE_TASK,
 } from '../utils/constants/contants'
+// Sounds
+import clickEffect from '../assets/sound/click_effect_01.wav'
 
 const TodoSection: React.FC = () => {
   const { state, dispatch } = useTaskContext()
+  const [play] = useSound(clickEffect)
+
   const addTask = (text: string) => {
     dispatch({ type: ADD_TASK, payload: text })
+    play()
   }
   const toggleTask = (id: number) => {
     dispatch({ type: TOGGLE_TASK, payload: id })
