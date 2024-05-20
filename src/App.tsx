@@ -2,6 +2,7 @@
 import TodoSection from './sections/TodoSection'
 import Navbar from './components/Navbar'
 import BackToTopButton from './components/BackToTheTop'
+import Chat from './components/ChatComponent'
 // State
 import TaskProvider from './utils/context/TaskContext'
 
@@ -15,6 +16,7 @@ function App() {
         <TaskProvider>
           <TodoSection />
         </TaskProvider>
+        <Chat />
       </main>
       <footer>
         <BackToTopButton />
