@@ -1,15 +1,16 @@
-import React, { RefObject, useEffect, useRef } from 'react'
-import { ArrowDown, ArrowBigUp } from 'lucide-react'
-import LoadingIndicator from './LoadingIndicator'
-import { Message } from './ChatComponent'
-
+import React, {useEffect,useRef} from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import LoadingIndicator from './LoadingIndicator';
+import {Message} from './ChatComponent'
+import { ArrowDown,ArrowBigUp } from 'lucide-react';
 interface ChatBoxProps {
-  messages: Message[]
-  loading: boolean
-  message: string
-  setMessage: React.Dispatch<React.SetStateAction<string>>
-  handleSendMessage: () => void
-  toggleVisibility: () => void
+  messages: Message[];
+  loading: boolean;
+  message: string;
+  setMessage: React.Dispatch<React.SetStateAction<string>>;
+  handleSendMessage: () => void;
+  toggleVisibility: () => void;
 }
 
 const ChatBox: React.FC<ChatBoxProps> = ({
@@ -20,13 +21,13 @@ const ChatBox: React.FC<ChatBoxProps> = ({
   handleSendMessage,
   toggleVisibility,
 }) => {
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (messages.length > 0 && messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages])
+  }, [messages]);
 
   return (
     <div
@@ -63,9 +64,9 @@ const ChatBox: React.FC<ChatBoxProps> = ({
                   {msg.timestamp}
                 </span>
               </div>
-              <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-black">
-                {msg.text}
-              </p>
+              <div className="text-sm font-normal py-2.5 text-gray-900 dark:text-black">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.text}</ReactMarkdown>
+              </div>
             </div>
           </div>
         ))}
@@ -79,7 +80,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type your message here..."
           onKeyDown={(e) => {
-            if (e.key === 'Enter') handleSendMessage()
+            if (e.key === 'Enter') handleSendMessage();
           }}
         />
         <button
@@ -91,7 +92,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ChatBox
+export default ChatBox;
