@@ -1,17 +1,23 @@
-import React, {useEffect,useRef} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { Message } from './ChatComponent';
+import { ArrowDown, ArrowUp, ArrowBigUp } from 'lucide-react';
 import LoadingIndicator from './LoadingIndicator';
-import {Message} from './ChatComponent'
-import { ArrowDown,ArrowBigUp } from 'lucide-react';
+
 interface ChatBoxProps {
   messages: Message[];
   loading: boolean;
   message: string;
   setMessage: React.Dispatch<React.SetStateAction<string>>;
-  handleSendMessage: () => void;
-  toggleVisibility: () => void;
+  handleSendMessage: (msg?: string) => void;
 }
+
+const predefinedPrompts = [
+  'Tell me a joke.',
+  'What is the capital of France?',
+  'Explain quantum mechanics in simple terms.',
+];
 
 const ChatBox: React.FC<ChatBoxProps> = ({
   messages,
@@ -19,9 +25,9 @@ const ChatBox: React.FC<ChatBoxProps> = ({
   message,
   setMessage,
   handleSendMessage,
-  toggleVisibility,
 }) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const promptsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (messages.length > 0 && messagesEndRef.current) {
@@ -31,31 +37,20 @@ const ChatBox: React.FC<ChatBoxProps> = ({
 
   return (
     <div
-      id="chatbox"
-      className="rounded-t-default fixed bottom-0 shadow-lg rounded-lg p-4 flex flex-col w-1/2 max-h-[60vh] bg-opacity-90 bg-gray"
+      className="flex flex-col  transition-all duration-300 max-h-0 hover:max-h-[700px] rounded-t-default shadow-lg rounded-lg p-4 bg-gray"
     >
-      <div className="flex justify-center items-center mb-2 ">
-        <button
-          onClick={toggleVisibility}
-          className="rounded-default hover:text-white opacity-30 hover:opacity-100"
-        >
-          <ArrowDown />
-        </button>
-      </div>
       <div
-        id="chat-container"
-        className="flex-1 overflow-auto hide-scroll-bar mt-4 space-y-4"
+        className="max-h-[700px] overflow-auto hide-scroll-bar mt-4 space-y-4"
       >
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`w-fit flex items-start gap-2.5 p-2 rounded break-words ${
-              msg.sender === 'user'
-                ? 'bg-beige text-black self-end ml-auto rounded-default'
-                : 'bg-orange text-black self-start rounded-default'
-            }`}
+            className={`w-fit flex items-start gap-2.5 p-2 rounded break-words ${msg.sender === 'user'
+              ? 'bg-beige text-black self-end ml-auto rounded-default rounded-bl-[77px] rounded-br-[]'
+              : 'bg-orange text-black self-start rounded-default rounded-bl-[0px] rounded-br-[77px]'
+              }`}
           >
-            <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+            <div className="flex flex-col w-full leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
               <div className="flex items-center space-x-2 rtl:space-x-reverse">
                 <span className="text-sm font-semibold text-gray-900 dark:text-black">
                   {msg.sender === 'user' ? 'You' : 'Magic Bot'}
@@ -65,31 +60,45 @@ const ChatBox: React.FC<ChatBoxProps> = ({
                 </span>
               </div>
               <div className="text-sm font-normal py-2.5 text-gray-900 dark:text-black">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.text}</ReactMarkdown>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {msg.text}
+                </ReactMarkdown>
               </div>
             </div>
           </div>
         ))}
         <div ref={messagesEndRef} />
       </div>
-
-      <div className="mt-4 flex items-center relative">
-        <input
-          className="rounded-default w-full p-2 pr-10 border border-gray-300 rounded"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type your message here..."
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') handleSendMessage();
-          }}
-        />
-        <button
-          className="w-[36px] h-[36px] absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 text-gray rounded-full flex items-center justify-center"
-          onClick={handleSendMessage}
-          disabled={!message.trim() || loading}
-        >
-          {loading ? <LoadingIndicator loading /> : <ArrowBigUp />}
-        </button>
+      <div>
+        <div className="mt-4 flex items-center relative">
+          <textarea
+            className="rounded-default w-full p-2 pr-10 border border-gray-300 rounded"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Type your message here..."
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') handleSendMessage();
+            }}
+          />
+          <button
+            className="w-[36px] h-[36px] absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 text-gray rounded-full flex items-center justify-center"
+            onClick={() => handleSendMessage(message)}
+            disabled={!message.trim() || loading}
+          >
+            {loading ? <LoadingIndicator loading /> : <ArrowBigUp />}
+          </button>
+        </div>
+        <div ref={promptsRef} className="flex mt-4 space-x-2">
+          {predefinedPrompts.map((prompt, index) => (
+            <button
+              key={index}
+              onClick={() => handleSendMessage(prompt)}
+              className="bg-blue-500 text-white p-2 rounded-default transition-all hover:-translate-y-3"
+            >
+              {prompt}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

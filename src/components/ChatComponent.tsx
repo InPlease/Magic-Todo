@@ -12,19 +12,16 @@ const Chat: React.FC = () => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
-  useEffect(() => {
-    toggleVisibility();
-  }, []);
-
-  const handleSendMessage = async () => {
+  const handleSendMessage = async (msg?: string) => {
     const currentTime = new Date().toLocaleTimeString([], {
       hour: '2-digit',
       minute: '2-digit',
     });
+    console.log(msg);
     const userMessage: Message = {
-      text: message,
+      text: msg || message,
       sender: 'user',
       timestamp: currentTime,
     };
@@ -38,19 +35,46 @@ const Chat: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message }),
+        body: msg
+          ? JSON.stringify({ message: msg })
+          : JSON.stringify({ message }),
       });
 
-      const data = await response.json();
-      const aiMessage: Message = {
-        text: data.response,
-        sender: 'ai',
-        timestamp: new Date().toLocaleTimeString([], {
-          hour: '2-digit',
-          minute: '2-digit',
-        }),
-      };
-      setMessages((prev) => [...prev, aiMessage]);
+      const reader = response.body?.getReader();
+      const decoder = new TextDecoder('utf-8');
+
+      let receivedText = '';
+      let aiMessageText = '';
+
+      while (true) {
+        const { done, value } = (await reader?.read()) || {};
+        if (done) break;
+        receivedText += decoder.decode(value, { stream: true });
+
+        const lines = receivedText.split('\n\n');
+        receivedText = lines.pop() || ''; // Keep the last incomplete line for the next iteration
+
+        for (const line of lines) {
+          if (line.trim().startsWith('data: ')) {
+            const data = JSON.parse(line.trim().substring(6));
+            if (data.response) {
+              aiMessageText += data.response;
+            }
+          }
+        }
+      }
+
+      if (aiMessageText) {
+        const aiMessage: Message = {
+          text: aiMessageText,
+          sender: 'ai',
+          timestamp: new Date().toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+          }),
+        };
+        setMessages((prev) => [...prev, aiMessage]);
+      }
     } catch (error) {
       console.error('Error sending message:', error);
     } finally {
@@ -58,51 +82,19 @@ const Chat: React.FC = () => {
     }
   };
 
-  const toggleVisibility = () => {
-    if (!isVisible) {
-      anime({
-        targets: '#chatbox',
-        translateY: [0, 100],
-        duration: 800,
-        complete: () => {
-          setIsVisible(true);
-        },
-      });
-
-      anime({
-        targets: '#chat-container',
-        maxHeight: 0,
-        duration: 800,
-      });
-    } else {
-      anime({
-        targets: '#chatbox',
-        translateY: [100, 0],
-        duration: 800,
-        begin: () => {
-          setIsVisible(false);
-        },
-      });
-
-      anime({
-        targets: '#chat-container',
-        maxHeight: '60vh',
-        duration: 800,
-      });
-    }
-  };
-
   return (
-    <>
+    <div
+      id="chatbox"
+      className="fixed bottom-0"
+    >
       <ChatBox
         messages={messages}
         loading={loading}
         message={message}
         setMessage={setMessage}
         handleSendMessage={handleSendMessage}
-        toggleVisibility={toggleVisibility}
       />
-    </>
+    </div>
   );
 };
 

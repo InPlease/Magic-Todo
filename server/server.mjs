@@ -1,16 +1,16 @@
-import express from 'express';
-import OpenAI from 'openai';
-import dotenv from 'dotenv';
-import cors from 'cors';
+import express from 'express'
+import OpenAI from 'openai'
+import dotenv from 'dotenv'
+import cors from 'cors'
 
-dotenv.config();
+dotenv.config()
 
-const app = express();
-const port = 3001;
+const app = express()
+const port = 3001
 
 const openai = new OpenAI({
   apiKey: process.env.OPEN_AI_KEY,
-});
+})
 
 app.use(
   cors({
@@ -18,52 +18,75 @@ app.use(
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
   })
-);
+)
 
-app.use(express.json());
+app.use(express.json())
 
 app.post('/api/chat', async (req, res) => {
-  const { message } = req.body;
-  const modelId = 'asst_kkibhhzZDa7vnQ1suVXItxYH';  // Replace with your specific virtual assistant model ID
+  const { message } = req.body
 
-  res.setHeader('Content-Type', 'text/event-stream');
-  res.setHeader('Cache-Control', 'no-cache');
-  res.setHeader('Connection', 'keep-alive');
+  res.setHeader('Content-Type', 'application/json')
+  res.setHeader('Cache-Control', 'no-cache')
+  res.setHeader('Connection', 'keep-alive')
 
   try {
-    const stream = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo-0125",
-      messages: [{ role: 'user', content: message }],
-      stream: true,
-    });
+    const thread = await openai.beta.threads.create()
 
-    let responseFragments = [];
+    await openai.beta.threads.messages.create(thread.id, {
+      role: 'user',
+      content: message,
+    })
 
-    for await (const chunk of stream) {
-      const content = chunk.choices[0]?.delta?.content;
-      if (content) {
-        responseFragments.push(content);
-      }
-    }
+    const run = openai.beta.threads.runs.stream(thread.id, {
+      assistant_id: 'asst_kkibhhzZDa7vnQ1suVXItxYH',
+    })
 
-    const cleanResponse = cleanMessage(responseFragments);
-    console.log(cleanResponse)
-    res.write(`${JSON.stringify({ response: cleanResponse })}\n\n`);
+    let responseFragments = []
+
+    run
+      .on('textCreated', (text) => process.stdout.write('\nassistant > '))
+      .on('textDelta', (textDelta, snapshot) => {
+        process.stdout.write(textDelta.value)
+        responseFragments.push(textDelta.value)
+        res.write(`data: ${JSON.stringify({ response: textDelta.value })}\n\n`)
+      })
+      .on('toolCallCreated', (toolCall) =>
+        process.stdout.write(`\nassistant > ${toolCall.type}\n\n`)
+      )
+      .on('toolCallDelta', (toolCallDelta, snapshot) => {
+        if (toolCallDelta.type === 'code_interpreter') {
+          if (toolCallDelta.code_interpreter.input) {
+            process.stdout.write(toolCallDelta.code_interpreter.input)
+          }
+          if (toolCallDelta.code_interpreter.outputs) {
+            process.stdout.write('\noutput >\n')
+            toolCallDelta.code_interpreter.outputs.forEach((output) => {
+              if (output.type === 'logs') {
+                process.stdout.write(`\n${output.logs}\n`)
+              }
+            })
+          }
+        }
+      })
+      .on('end', () => {
+        const cleanResponse = cleanMessage(responseFragments)
+        res.write(JSON.stringify({ response: cleanResponse }))
+        res.end()
+      })
   } catch (error) {
-    console.error('Error fetching data from OpenAI:', error);
-    res.write(`data: {"error": "Error fetching data from OpenAI"}\n\n`);
-  } finally {
-    res.end();
+    console.error('Error fetching data from OpenAI:', error)
+    res.write(JSON.stringify({ error: 'Error fetching data from OpenAI' }))
+    res.end()
   }
-});
+})
 
 const cleanMessage = (fragments) => {
   return fragments
     .join('')
     .replace(/\s+([?!.])/g, '$1')
-    .trim();
-};
+    .trim()
+}
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+  console.log(`Server is running on http://localhost:${port}`)
+})
