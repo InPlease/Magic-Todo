@@ -7,7 +7,7 @@ export interface Message {
   timestamp: string
 }
 
-const Chat: React.FC = () => {
+const ChatComponent: React.FC = () => {
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState<Message[]>([])
   const [loading, setLoading] = useState(false)
@@ -92,4 +92,4 @@ const Chat: React.FC = () => {
   )
 }
 
-export default Chat
+export default ChatComponent
