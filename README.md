@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fcdd1228-b7e3-4672-8423-7e671282f8a6/deploy-status)](https://app.netlify.com/sites/savant-test/deploys)
 # Mega - Todo
 
 Thank you for stopping by. This is just a test where I created a TODO aiming to achieve 100% SEO. I hope you enjoy it. Don't forget to check out my GitHub if you want to see better projects :)
