@@ -9,7 +9,7 @@ const app = express()
 const port = 3001
 
 const openai = new OpenAI({
-  apiKey: process.env.OPEN_AI_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 })
 
 app.use(
@@ -38,14 +38,14 @@ app.post('/api/chat', async (req, res) => {
     })
 
     const run = openai.beta.threads.runs.stream(thread.id, {
-      assistant_id: 'asst_kkibhhzZDa7vnQ1suVXItxYH',
+      assistant_id: process.env.ASST_ID
     })
 
-    let responseFragments = []
+    const responseFragments = []
 
     run
-      .on('textCreated', (text) => process.stdout.write('\nassistant > '))
-      .on('textDelta', (textDelta, snapshot) => {
+      .on('textCreated', () => process.stdout.write('\nassistant > '))
+      .on('textDelta', (textDelta) => {
         process.stdout.write(textDelta.value)
         responseFragments.push(textDelta.value)
         res.write(`data: ${JSON.stringify({ response: textDelta.value })}\n\n`)
@@ -53,7 +53,7 @@ app.post('/api/chat', async (req, res) => {
       .on('toolCallCreated', (toolCall) =>
         process.stdout.write(`\nassistant > ${toolCall.type}\n\n`)
       )
-      .on('toolCallDelta', (toolCallDelta, snapshot) => {
+      .on('toolCallDelta', (toolCallDelta) => {
         if (toolCallDelta.type === 'code_interpreter') {
           if (toolCallDelta.code_interpreter.input) {
             process.stdout.write(toolCallDelta.code_interpreter.input)
