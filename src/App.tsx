@@ -2,7 +2,7 @@
 import TodoSection from './sections/TodoSection'
 import Navbar from './components/Navbar'
 import BackToTopButton from './components/BackToTheTop'
-import Chat from './components/ChatComponent'
+import Chat from './components/Chat/ChatComponent'
 // State
 import TaskProvider from './utils/context/TaskContext'
 

@@ -1,23 +1,38 @@
-import React, { useEffect, useRef, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { Message } from './ChatComponent';
-import { ArrowDown, ArrowUp, ArrowBigUp } from 'lucide-react';
-import LoadingIndicator from './LoadingIndicator';
+// Dependencies
+import React, { useEffect, useRef } from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { ArrowBigUp } from 'lucide-react'
+// Components
+import { Message } from './ChatComponent'
+import LoadingIndicator from '../LoadingIndicator'
 
 interface ChatBoxProps {
-  messages: Message[];
-  loading: boolean;
-  message: string;
-  setMessage: React.Dispatch<React.SetStateAction<string>>;
-  handleSendMessage: (msg?: string) => void;
+  messages: Message[]
+  loading: boolean
+  message: string
+  setMessage: React.Dispatch<React.SetStateAction<string>>
+  handleSendMessage: (msg?: string) => void
 }
 
+/**
+ * This need to be improved, since
+ * we will get from users (Backend)
+ *
+ * This task are examples about what we can do,
+ * remind, organize by or create a plan by topics.
+ *
+ * Users can have topics: #science, #gym, #learn
+ * Chat gpt will create a list then we will transform taht
+ * to task.
+ *
+ * This need code in backend
+ */
 const predefinedPrompts = [
-  'Tell me a joke.',
-  'What is the capital of France?',
-  'Explain quantum mechanics in simple terms.',
-];
+  'How can I organize my tasks better?',
+  'Remind me to finish my project',
+  'Create a plan for me, using my topics',
+]
 
 const ChatBox: React.FC<ChatBoxProps> = ({
   messages,
@@ -26,29 +41,26 @@ const ChatBox: React.FC<ChatBoxProps> = ({
   setMessage,
   handleSendMessage,
 }) => {
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const promptsRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const promptsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (messages.length > 0 && messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
     }
-  }, [messages]);
+  }, [messages])
 
   return (
-    <div
-      className="flex flex-col  transition-all duration-300 max-h-0 hover:max-h-[700px] rounded-t-default shadow-lg rounded-lg p-4 bg-gray"
-    >
-      <div
-        className="max-h-[700px] overflow-auto hide-scroll-bar mt-4 space-y-4"
-      >
+    <div className="max-w-[747px] animate-pulse flex flex-col  transition-all duration-300 max-h-0 hover:max-h-[700px] rounded-t-default shadow-lg rounded-lg p-4 bg-gray">
+      <div className="max-h-[700px] overflow-auto hide-scroll-bar mt-4 space-y-4">
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`w-fit flex items-start gap-2.5 p-2 rounded break-words ${msg.sender === 'user'
-              ? 'bg-beige text-black self-end ml-auto rounded-default rounded-bl-[77px] rounded-br-[]'
-              : 'bg-orange text-black self-start rounded-default rounded-bl-[0px] rounded-br-[77px]'
-              }`}
+            className={`w-fit flex items-start gap-2.5 p-2 rounded break-words ${
+              msg.sender === 'user'
+                ? 'bg-beige text-black self-end ml-auto rounded-default'
+                : 'bg-orange text-black self-start rounded-default'
+            }`}
           >
             <div className="flex flex-col w-full leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
               <div className="flex items-center space-x-2 rtl:space-x-reverse">
@@ -77,7 +89,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Type your message here..."
             onKeyDown={(e) => {
-              if (e.key === 'Enter') handleSendMessage();
+              if (e.key === 'Enter') handleSendMessage()
             }}
           />
           <button
@@ -101,7 +113,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ChatBox;
+export default ChatBox
