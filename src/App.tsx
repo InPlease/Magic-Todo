@@ -6,10 +6,6 @@ import BackToTopButton from './components/BackToTheTop'
 import TaskProvider from './utils/context/TaskContext'
 
 function App() {
-  return (
-    <>
-
-    </>
-  )
+  return <></>
 }
 export default App

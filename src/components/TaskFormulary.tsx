@@ -16,7 +16,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAdd }) => {
     }
   }
   return (
-    <section className="w-full flex justify-center items-center">
+    <div className="w-full flex justify-center items-center">
       <form onSubmit={handleSubmit} className="w-full max-w-maxpage">
         <div className="w-full mb-6">
           <div className="flex justify-center items-center">
@@ -49,7 +49,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAdd }) => {
           {t('aria_input_add_task')}
         </p>
       </form>
-    </section>
+    </div>
   )
 }
 export default TaskForm

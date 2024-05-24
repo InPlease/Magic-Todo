@@ -7,7 +7,7 @@ const TaskCounter: React.FC = () => {
   const { state } = useTaskContext()
   const { t } = useTranslation()
   return (
-    <section className="max-w-maxpage flex w-full justify-between items-center sm:flex-nowrap xs:flex-wrap my-[20px] p-[20px_15px_20px_15px] rounded-default border-[2px] border-beige">
+    <div className="max-w-maxpage flex w-full justify-between items-center sm:flex-nowrap xs:flex-wrap my-[20px] p-[20px_15px_20px_15px] rounded-default border-[2px] border-beige">
       <div className="w-full">
         <h2
           tabIndex={0}
@@ -32,7 +32,7 @@ const TaskCounter: React.FC = () => {
             state.tasks.length &&
             state.tasks.filter((task) => task.completed).length}
         </small>
-        <span className="text-beige font-extrabold">/</span>
+        <span className="text-beige font-extrabold"> /</span>
         <small
           tabIndex={0}
           className="flex items-center text-[1em] text-beige font-extrabold"
@@ -40,7 +40,7 @@ const TaskCounter: React.FC = () => {
           {state && state.tasks && state.tasks.length}
         </small>
       </div>
-    </section>
+    </div>
   )
 }
 export default TaskCounter

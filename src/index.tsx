@@ -19,14 +19,14 @@ root.render(
     <header>
       <Navbar />
     </header>
-    <main className="w-full flex-col flex items-center justify-center p-10">
+    <main className="flex flex-grow items-stretch">
       <React.StrictMode>
         <RouterProvider router={router} />
       </React.StrictMode>
     </main>
     <footer>
       <BackToTopButton />
-    </footer></>
-
+    </footer>
+  </>
 )
 reportWebVitals()

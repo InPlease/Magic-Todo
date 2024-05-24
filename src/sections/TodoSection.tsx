@@ -36,7 +36,7 @@ const TodoSection: React.FC = () => {
     dispatch({ type: DELETE_ALL, payload: '' })
   }
   return (
-    <>
+    <section className='flex justify-center items-center flex-col'>
       <TaskCounted />
       <TaskForm onAdd={addTask} />
       <TaskList
@@ -46,7 +46,7 @@ const TodoSection: React.FC = () => {
         onDeleteAll={onDeleteAll}
       />
       <ChatComponent />
-    </>
+    </section>
   )
 }
 export default TodoSection

@@ -50,7 +50,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
   }
 
   return (
-    <section className="my-[17px] transition-all hover:translate-y-[-12px]  w-full grid grid-cols-[80%_20%] border-[2px] border-beige rounded-default">
+    <div className="my-[17px] transition-all hover:translate-y-[-12px]  w-full grid grid-cols-[80%_20%] border-[2px] border-beige rounded-default">
       <div
         ref={taskRef}
         className="bg-gray cursor-pointer p-[15px_4px_15px_7px] flex items-center space-x-2"
@@ -80,7 +80,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
           <Trash2 />
         </button>
       </div>
-    </section>
+    </div>
   )
 }
 export default TaskComponent

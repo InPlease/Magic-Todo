@@ -17,6 +17,12 @@ html {
   scrollbar-width: none;
 }
 
+html,
+body,
+#root {
+  @apply min-h-screen flex flex-col;
+}
+
 /* Typography Styles */
 h1,
 h2,
@@ -64,7 +70,7 @@ input:focus-visible {
 }
 
 input:not([type='checkbox']) {
-  @apply border-[3px] border-transparent rounded-default min-h-[42px] p-[2px_14px_2px_23px] m-[5px];
+  @apply border-[3px] border-transparent rounded-default min-h-[42px] p-[2px_14px_2px_23px];
 }
 
 /* Input Checkbox */
