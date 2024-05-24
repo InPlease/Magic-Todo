@@ -13,6 +13,10 @@ html {
   scrollbar-width: none;
 }
 
+.hide-scroll-bar {
+  scrollbar-width: none;
+}
+
 /* Typography Styles */
 h1,
 h2,
@@ -41,7 +45,7 @@ button {
 
 button,
 button:not([id='back_top_btn']) {
-  @apply opacity-100 border-[3px] border-solid border-transparent ease-in-out duration-300 bg-orange;
+  @apply border-[3px] border-solid border-transparent ease-in-out duration-300 bg-orange;
 }
 
 button:focus:not([id='back_top_btn']) {

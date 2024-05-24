@@ -38,6 +38,20 @@ module.exports = {
       full: '100px',
       default: '5px',
     },
+    keyframes: {
+      openbox: {
+        '0%': { height: '0px', width: '0px' },
+        '100%': { height: '80vh', width: '100%' },
+      },
+      closebox: {
+        '0%': { height: '80vh', width: '100%' },
+        '100%': { height: '0px', width: '0px' },
+      },
+    },
+    animation: {
+      openbox: 'openbox 0.5s ease-in-out forwards',
+      closebox: 'closebox 0.5s ease-in-out forwards',
+    },
   },
   plugins: [],
 }

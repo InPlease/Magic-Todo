@@ -3,14 +3,17 @@ import React, { useEffect, useRef } from 'react'
 import anime from 'animejs/lib/anime.es.js'
 import { Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+
 interface TaskProps {
   task: { id: number; text: string; completed: boolean }
   onToggle: (id: number) => void
   onDelete: (id: number) => void
 }
-const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
+
+const TaskComponent: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
   const taskRef = useRef<HTMLDivElement>(null)
   const { t } = useTranslation()
+
   useEffect(() => {
     if (taskRef.current) {
       anime({
@@ -22,6 +25,7 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
       })
     }
   }, [])
+
   const handleDelete = () => {
     if (taskRef.current) {
       anime({
@@ -36,12 +40,15 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
       })
     }
   }
+
   const handleCheckboxClick = (e: React.MouseEvent) => {
     e.stopPropagation()
   }
+
   const handleCheckboxChange = () => {
     onToggle(task.id)
   }
+
   return (
     <section className="my-[17px] transition-all hover:translate-y-[-12px]  w-full grid grid-cols-[80%_20%] border-[2px] border-beige rounded-default">
       <div
@@ -76,4 +83,4 @@ const Task: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
     </section>
   )
 }
-export default Task
+export default TaskComponent

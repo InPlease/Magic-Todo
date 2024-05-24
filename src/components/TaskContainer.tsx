@@ -10,12 +10,21 @@ import useSortedTasks from '../hooks/useSortedTasks'
 // Components
 import TaskComponent from './TaskComponent'
 import ErrorHandlerMessageComponent from './ErrorHandlerMessageComponent'
+
+interface Task {
+  id: number
+  text: string
+  completed: boolean
+  createdAt: string
+}
+
 interface TaskListProps {
-  tasks: { id: number; text: string; completed: boolean; createdAt: string }[]
+  tasks: Task[]
   onToggle: (id: number) => void
   onDelete: (id: number) => void
   onDeleteAll: () => void
 }
+
 const TaskList: React.FC<TaskListProps> = ({
   tasks,
   onToggle,
@@ -27,7 +36,7 @@ const TaskList: React.FC<TaskListProps> = ({
 
   const renderedTasks = useMemo(() => {
     return sortedTasks.length ? (
-      sortedTasks.map((task: any) => (
+      sortedTasks.map((task: Task) => (
         <TaskComponent
           key={task.id}
           task={task}
@@ -39,10 +48,11 @@ const TaskList: React.FC<TaskListProps> = ({
       <ErrorHandlerMessageComponent message={t('empty_task')} />
     )
   }, [sortedTasks, onToggle, onDelete, t])
+
   return (
     <section className="scroll-hide w-full max-w-maxpage p-[4px] scroll-smooth">
-      <div className="space-x-3 mb-[20px] flex justify-between ">
-        <div className="space-x-3">
+      <div className="flex justify-between">
+        <div className="space-x-3 mb-[20px]">
           <button
             aria-label={t('sort_by_latest')}
             className="rounded-default hover:text-white"
@@ -76,8 +86,9 @@ const TaskList: React.FC<TaskListProps> = ({
           </button>
         </div>
       </div>
-      {renderedTasks}
+      <div>{renderedTasks}</div>
     </section>
   )
 }
+
 export default TaskList

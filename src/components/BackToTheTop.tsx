@@ -29,7 +29,7 @@ const BackToTopButton: React.FC = () => {
       type="button"
       onClick={scrollToTop}
       aria-label={t('back_to_top')}
-      className={`fixed bottom-8 right-8 p-2 rounded-full bg-orange-500 text-white shadow-lg transition-opacity duration-300 ${
+      className={`fixed bottom-20 right-8 p-2 rounded-full bg-orange-500 text-white shadow-lg transition-opacity duration-300 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
