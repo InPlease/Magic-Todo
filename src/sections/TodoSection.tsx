@@ -16,6 +16,7 @@ import {
 } from '../utils/constants/contants'
 // Sounds
 import clickEffect from '../assets/sound/click_effect_01.wav'
+import ChatComponent from '../components/Chat/ChatComponent'
 
 const TodoSection: React.FC = () => {
   const { state, dispatch } = useTaskContext()
@@ -44,6 +45,7 @@ const TodoSection: React.FC = () => {
         onDelete={deleteTask}
         onDeleteAll={onDeleteAll}
       />
+      <ChatComponent />
     </>
   )
 }
