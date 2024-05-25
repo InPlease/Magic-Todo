@@ -36,7 +36,7 @@ const TodoSection: React.FC = () => {
     dispatch({ type: DELETE_ALL, payload: '' })
   }
   return (
-    <section className='flex justify-center items-center flex-col'>
+    <section className='w-full flex justify-center items-center flex-col'>
       <TaskCounted />
       <TaskForm onAdd={addTask} />
       <TaskList

@@ -1,18 +1,72 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/**/*.{js,jsx,ts,tsx}', // Ajusta según la estructura de tu proyecto
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     screens: {
-      xs: '200px', // @media (min-width: 200px) { ... }
-      sm: '640px', // @media (min-width: 640px) { ... }
-      md: '768px', // @media (min-width: 768px) { ... }
-      lg: '1024px', // @media (min-width: 1024px) { ... }
-      xl: '1280px', // @media (min-width: 1280px) { ... }
-      '2xl': '1536px', // @media (min-width: 1536px) { ... }
+      xs: '200px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
+    maxWidth: {
+      "auth-forms": '500px',
     },
     extend: {
+      maxWidth: {
+        "auth-forms": '500px',
+      },
+      fontSize: {
+        'base-form-subtitle': [
+          '1.1em',
+          {
+            lineHeight: '20px',
+            letterSpacing: '1px',
+            fontWeight: '200',
+          },
+        ],
+        'sm-form-subtitle': [
+          '1em',
+          {
+            lineHeight: '20px',
+            letterSpacing: '1px',
+            fontWeight: '200',
+          },
+        ],
+        'xs-form-subtitle': [
+          '.8em',
+          {
+            lineHeight: '18px',
+            letterSpacing: '1px',
+            fontWeight: '200',
+          },
+        ],
+        'base-form-title': [
+          '2em',
+          {
+            lineHeight: '20px',
+            letterSpacing: '1px',
+            fontWeight: '500',
+          },
+        ],
+        'sm-form-title': [
+          '2em',
+          {
+            lineHeight: '20px',
+            letterSpacing: '1px',
+            fontWeight: '500',
+          },
+        ],
+        'xs-form-title': [
+          '2em',
+          {
+            lineHeight: '18px',
+            letterSpacing: '1px',
+            fontWeight: '600',
+          },
+        ],
+      },
       fontFamily: {
         sans: ['Ubuntu', 'sans-serif'],
       },
