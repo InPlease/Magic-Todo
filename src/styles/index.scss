@@ -1,0 +1,51 @@
+/* Themes */
+@use 'theme.scss';
+
+/* Libs CDNs */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@@300;400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  $fields-border-radius: 5px;
+
+  --anim-duration: 0.4s;
+}
+
+body,
+html {
+  @apply bg-black;
+  scrollbar-width: none;
+}
+
+.hide-scroll-bar {
+  scrollbar-width: none;
+}
+
+html,
+body,
+#root {
+  @apply min-h-screen flex flex-col;
+}
+
+/* Typography Styles */
+h1,
+h2,
+p,
+button {
+  @apply font-source;
+}
+
+h1 {
+  @apply font-bold;
+}
+
+h2 {
+  @apply font-semibold;
+}
+
+p,
+button {
+  @apply font-normal;
+}

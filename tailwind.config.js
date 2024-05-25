@@ -11,11 +11,11 @@ module.exports = {
       '2xl': '1536px',
     },
     maxWidth: {
-      "auth-forms": '500px',
+      'auth-forms': '500px',
     },
     extend: {
-      maxWidth: {
-        "auth-forms": '500px',
+      transitionDuration: {
+        'buttons-duration': '400ms',
       },
       fontSize: {
         'base-form-subtitle': [
@@ -68,15 +68,17 @@ module.exports = {
         ],
       },
       fontFamily: {
-        sans: ['Ubuntu', 'sans-serif'],
+        source: ['Source Code Pro', 'monospace'],
       },
       colors: {
         green: '#5abf4b',
         beige: '#d9c6b0',
         orange: '#f25835',
         red: '#cb2c1d',
+        'error-red': '#f31f45',
         black: '#121212',
         gray: '#1e1e1e',
+        gray2: '#3e3e3e',
       },
       width: {
         full: '100%',

@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
 // Style
-import './styles/index.css'
+import './styles/index.scss'
 // Translation
 import './i18n'
 import { RouterProvider } from 'react-router-dom'

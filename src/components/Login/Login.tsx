@@ -1,96 +1,105 @@
-import { Linkedin, Mail } from 'lucide-react'
-import React from 'react'
+// Dependencies
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+
+// Logos
+import googleLogo from '../../assets/icons/google-logo.svg'
 
 const LoginForm = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm()
+  const { t } = useTranslation()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
 
-    const onSubmit = (data: any) => {
-        console.log(data)
-        // Handle form submission logic here
-    }
+  const onSubmit = (data: any) => {
+    console.log(data)
+    // Handle form submission logic here
+  }
 
-    return (
-        <div className="justify-center items-center flex w-full bg-gray text-white rounded-lg shadow-lg overflow-hidden">
-            <div className="max-w-auth-forms space-y-[20px] flex-col flex justify-center  w-full p-8 lg:w-1/2">
-              <div className="space-y-[20px]">
-              <h2 className="xs:text-xs-form-title sm:text-sm-form-title md:text-base-form-title text-center">
-                    Welcome!
-                </h2>
-                <p className="xs:text-xs-form-subtitle sm:text-sm-form-subtitle md:text-base-form-subtitle text-center text-white font-extralight">
-                    Unify identity governance and privileged access with the converged
-                    Enterprise Identity Cloud.
-                </p>
-              </div>
-                <form onSubmit={handleSubmit(onSubmit)} className='space-y-[10px]'>
-                    <div className='space-y-[5px]'>
-                        <label htmlFor="email" className="block text-sm">
-                            Email
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            {...register('email', { required: 'Email is required' })}
-                            className="w-full px-4 py-2 text-gray-700 bg-gray-200 rounded focus:outline-none focus:bg-white"
-                        />
-                    </div>
-                    <div className='space-y-[5px]'>
-                        <label htmlFor="password" className="block text-sm">
-                            Password
-                        </label>
-                        <input
-                            type="password"
-                            id="password"
-                            {...register('password', { required: 'Password is required' })}
-                            className="w-full px-4 py-2 text-gray-700 bg-gray-200 rounded focus:outline-none focus:bg-white"
-                        />
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div>
-                            <input
-                                type="checkbox"
-                                id="remember"
-                                className="mr-2 leading-tight"
-                            />
-                            <label htmlFor="remember" className="text-sm">
-                                Remember me
-                            </label>
-                        </div>
-                        <a href="#" className="text-sm text-gray-600 hover:underline">
-                            Forgot password?
-                        </a>
-                    </div>
-                    <button
-                        type="submit"
-                        className="rounded-default w-full px-4 py-2 mt-4 text-white hover:bg-red"
-                    >
-                        Sign In
-                    </button>
-                </form>
-                <div className="text-center">
-                    <p className="text-sm">Or</p>
-                    <div className="flex justify-center mt-4">
-                        <button className="rounded-default items-center flex px-4 py-2 mx-2  text-white bg-transparent">
-                            <Linkedin />
-                        </button>
-                        <button className="rounded-default items-center  flex px-4 py-2 mx-2 bg-red-500 text-white">
-                            <Mail /> 
-                        </button>
-                    </div>
-                </div>
-                <p className=" text-sm text-center text-gray-600">
-                    Don't have an account?{' '}
-                    <a href="#" className="text-blue-500 hover:underline">
-                        Sign up
-                    </a>
-                </p>
-            </div>
+  return (
+    <div className="justify-center items-center flex w-full bg-gray text-white rounded-lg shadow-lg overflow-hidden">
+      <div className="max-w-auth-forms flex-col flex justify-center w-full p-8 lg:w-1/2">
+        <div className="form-container">
+          <h2 className="form-title">{t('welcome')}</h2>
+          <p className="form-subtitle show-md-hide-xs">{t('subtitle')}</p>
+          <p className="form-subtitle show-xs-hide-md">{t('alt_subtitle')}</p>
         </div>
-    )
+        <div className="text-center">
+          <div className="flex justify-center space-x-[10px]">
+            <button
+              className="secondary-button-quick-login flex justify-center space-x-5 socials-quick-login-button"
+              aria-label={t('sign_in_with_linkedin')}
+            >
+              <p>{t('login_with_google')}</p>
+              <img src={googleLogo} alt="google logo" />
+            </button>
+          </div>
+        </div>
+        <div className="w-full flex items-center">
+          <div className="separator-left"></div>
+          <p className="text-sm uppercase text-gray2">{t('or')}</p>
+          <div className="separator-right"></div>
+        </div>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          aria-label={t('form_aria_label')}
+        >
+          <div className="form-field-container">
+            <label htmlFor="email" className="block text-sm">
+              {t('email')}
+            </label>
+            <input
+              type="email"
+              id="email"
+              {...register('email', { required: t('email_required') })}
+              className="form-input-primary"
+              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-describedby="email-error"
+            />
+            {errors.email && (
+              <span id="email-error" className="error-message">
+                {errors.email.message?.toString()}
+              </span>
+            )}
+          </div>
+          <div className="form-field-container">
+            <label htmlFor="password" className="block text-sm">
+              {t('password')}
+            </label>
+            <input
+              type="password"
+              id="password"
+              {...register('password', { required: t('password_required') })}
+              className="form-input-primary"
+              aria-invalid={errors.password ? 'true' : 'false'}
+              aria-describedby="password-error"
+            />
+            {errors.password && (
+              <span id="password-error" className="error-message">
+                {errors.password.message?.toString()}
+              </span>
+            )}
+          </div>
+          <div className="flex justify-between items-center">
+            <a href="#" className="text-sm text-gray-600 underline">
+              {t('forgot_password')}
+            </a>
+          </div>
+          <button type="submit" className="primary-button">
+            {t('sign_in')}
+          </button>
+        </form>
+        <p className="mt-[10px] text-sm text-center text-gray-600">
+          <a href="#" className="mr-[5px] ml-[5px] text-orange underline">
+            {t('sign_up')}
+          </a>
+          {t('no_account')}
+        </p>
+      </div>
+    </div>
+  )
 }
 
 export default LoginForm
