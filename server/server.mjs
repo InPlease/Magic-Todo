@@ -38,7 +38,7 @@ app.post('/api/chat', async (req, res) => {
     })
 
     const run = openai.beta.threads.runs.stream(thread.id, {
-      assistant_id: process.env.ASST_ID
+      assistant_id: process.env.ASST_ID,
     })
 
     const responseFragments = []

@@ -50,7 +50,7 @@ const TaskList: React.FC<TaskListProps> = ({
   }, [sortedTasks, onToggle, onDelete, t])
 
   return (
-    <section className="scroll-hide w-full max-w-maxpage p-[4px] scroll-smooth">
+    <div className="scroll-hide w-full max-w-maxpage p-[4px] scroll-smooth">
       <div className="flex justify-between">
         <div className="space-x-3 mb-[20px]">
           <button
@@ -87,7 +87,7 @@ const TaskList: React.FC<TaskListProps> = ({
         </div>
       </div>
       <div>{renderedTasks}</div>
-    </section>
+    </div>
   )
 }
 

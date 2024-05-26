@@ -1,0 +1,67 @@
+/*
+  This will be the new theme of whole app using tailwind css,
+  first of all please use @layer everything you will include a new style
+*/
+
+.separator-left {
+  @apply w-1/2 h-[1px] bg-white mr-2;
+}
+
+.separator-right {
+  @apply w-1/2 h-[1px] bg-white ml-2;
+}
+
+// Show/Hide Mobile Medium Size Screen
+.show-xs-hide-md {
+  @apply xs:hidden md:block;
+}
+
+.show-md-hide-xs {
+  @apply md:hidden xs:block;
+}
+
+// Forms Container
+.form-container {
+  @apply mb-x20 space-y-x20;
+}
+
+.form-field-container {
+  @apply mt-x10 mb-x20;
+}
+
+.form-title {
+  @apply w-full xs:text-xs-form-title sm:text-sm-form-title md:text-base-form-title text-center;
+}
+.form-subtitle {
+  @apply w-full xs:text-xs-form-subtitle sm:text-sm-form-subtitle md:text-base-form-subtitle text-center text-white;
+}
+
+// Forms - Inputs
+.form-input-primary {
+  @apply mt-[5px] mb-[5px] rounded-[5px] w-full px-4 py-2 bg-transparent border border-solid border-gray2 focus-within:outline-orange focus-within:outline focus-within:outline-2;
+}
+.form-input-secondary {
+  @apply rounded-[5px] w-full px-4 py-2;
+}
+
+// Buttons
+.primary-button {
+  @apply focus:outline focus:outline-[#eb9986] focus:outline-[3px] ease-in-out duration-buttons-duration transition-colors my-[25px] rounded-default w-full px-4 py-2 bg-orange text-white hover:bg-red;
+}
+.primary-no-my-button {
+  @apply focus:outline focus:outline-[#eb9986] focus:outline-[3px] ease-in-out duration-buttons-duration transition-colors rounded-default w-full px-4 py-2 bg-orange text-white hover:bg-red;
+}
+.secondary-button {
+  @apply ease-in-out duration-300 my-[25px] rounded-default w-full px-4 py-2 bg-red text-white hover:bg-orange;
+}
+.secondary-button-quick-login {
+  @apply focus:outline focus:outline-[#eb9986] focus:outline-[3px]  ease-in-out duration-300 my-[25px] rounded-default w-full px-4 py-2 bg-gray text-white border-solid border-gray2;
+}
+.socials-quick-logig-button {
+  @apply ease-in-out p-[10px] opacity-70 hover:opacity-100;
+}
+
+// Messages Type
+.error-message {
+  @apply text-error-red text-sm;
+}

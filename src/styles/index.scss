@@ -1,0 +1,50 @@
+/* Themes */
+@use 'theme';
+/* Libs CDNs */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  $fields-border-radius: 5px;
+
+  --anim-duration: 0.4s;
+}
+
+body,
+html {
+  @apply bg-black;
+  scrollbar-width: none;
+}
+
+.hide-scroll-bar {
+  scrollbar-width: none;
+}
+
+html,
+body,
+#root {
+  @apply min-h-screen flex flex-col;
+}
+
+/* Typography Styles */
+h1,
+h2,
+p,
+button {
+  @apply font-roboto;
+}
+
+h1 {
+  @apply font-bold;
+}
+
+h2 {
+  @apply font-semibold;
+}
+
+p,
+button {
+  @apply font-normal;
+}

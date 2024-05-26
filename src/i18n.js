@@ -10,44 +10,125 @@ i18n.use(initReactI18next).init({
   resources: {
     en: {
       translation: {
-        task_done: 'Todo done',
-        task_done_subtitle: 'You can do it!',
-        empty_task:
-          "Even though you couldn't find any task, you should try to create one yourself :)",
-        placeholder_create_task: 'write your next task',
-        aria_add_task: 'button to add a new task',
-        aria_input_add_task: 'field to add task description',
-        alt_not_elements:
-          "error image, comedy actor saying 'You need to relax'",
-        sort_by_latest: 'Sort by latest',
-        sort_by_oldest: 'Sort by oldest',
-        sort_by_alpha: 'Sort alphabetically',
-        change_language_to_spanish: 'Change language to Spanish',
-        change_language_to_english: 'Cambiar idioma a Inglés',
-        delete_task: 'Delete task',
-        back_to_top: 'Back to top',
-        delete_all: 'Delete all task',
+        // Titles and subtitles
+        welcome: 'Welcome!',
+        welcome_recover_magic_link: 'Get Back In',
+        welcome_recover_change_password: 'Reset Password',
+        welcome_to_registration: 'Welcome to the family',
+        please_fill_in_the_details:
+          'Thank you for trusting our services. We hope you feel like family here. Remember, goals are not achieved in one day 😚',
+        subititle_recover_change_password:
+          'Keep your account secure with a new password.',
+        subititle_recover_magic_link:
+          'Recover your account and rejoin the journey',
+        subtitle: 'Simplify, organize, and conquer your day with AI',
+        alt_subtitle: 'Daily tasks made easy, right in your hands',
+
+        // 404 Page
+        not_found_title: '404 - Page Not Found',
+        not_found_message: 'Oops! The page you are looking for does not exist.',
+        not_found_image_alt: '404 Not Found',
+        go_back_home: 'Go Back Home',
+        go_back_home_aria: 'Go back to home page',
+
+        // Form labels
+        email: 'Email',
+        password: 'Password',
+        new_password: 'New Password',
+        confirm_password: 'Confirm Password',
+
+        // Validation messages
+        email_required: 'Oops! Looks like you forgot to enter your email.',
+        invalid_email: 'Invalid email format',
+        password_required: 'Whoops! Don’t forget to enter your password',
+        new_password_required: 'Please enter a new password',
+        confirm_password_required: 'Please confirm your new password',
+        password_min_length: 'Password must be at least 6 characters long',
+
+        // Buttons and links
+        forgot_password: 'Forgot password?',
+        sign_in: 'Sign In',
+        reset_password: 'Reset Password',
+        or: 'Or',
+        no_account: "if you don't have an account yet.",
+        sign_up: 'Sign up',
+        send_magic_link: 'Send magic link',
+        back_to_login: 'Back to login',
+        already_have_account: 'Already have an account?',
+
+        // Aria labels
+        form_aria_label: 'Login form',
+        email_aria_label: 'Enter your email',
+        password_aria_label: 'Enter your password',
+        new_password_aria_label: 'Enter a new password',
+        confirm_password_aria_label: 'Confirm your new password',
+
+        // Social login
+        sign_in_with_google: 'Sign in with Google',
+        sign_in_with_linkedin: 'Sign in with LinkedIn',
+        login_with_google: 'Login with Google',
       },
     },
     es: {
       translation: {
-        task_done: 'Tareas por terminar',
-        task_done_subtitle: 'Tu puedes!',
-        empty_task:
-          'Aunque no pudiste encontrar alguna tarea, deberías intentar crear alguna :)',
-        placeholder_create_task: 'escribe tu siguiente tarea',
-        aria_add_task: 'botón para agregar una tarea',
-        aria_input_add_task: 'campo para agregar la descripción de la tarea',
-        alt_not_elements:
-          "Gif de error, un actor diciéndote 'Tienes que relajarte'",
-        sort_by_latest: 'Ordena desde el más nuevo',
-        sort_by_oldest: 'Ordena desde el más viejo',
-        sort_by_alpha: 'Ordena alfabéticamente',
-        change_language_to_spanish: 'Change language to Spanish',
-        change_language_to_english: 'Cambiar idioma a Inglés',
-        delete_task: 'Eliminar tarea',
-        back_to_top: 'Volver arriba',
-        delete_all: 'Eliminar todos las task',
+        // Titles and subtitles
+        welcome: '¡Bienvenido!',
+        welcome_recover_magic_link: 'Recupera el acceso',
+        welcome_recover_change_password: 'Restablecer contraseña',
+        welcome_to_registration: '¡Yaaahoooy!',
+        please_fill_in_the_details:
+          'Gracias por confiar en nosotros, espero te sientas en familia aca 😚',
+        subititle_recover_change_password:
+          'Mantén segura tu cuenta con una nueva contraseña.',
+        subtitle_recover_magic_link:
+          'Recupera tu cuenta y vuelve a unirte al viaje',
+        subtitle: 'Simplifica, organiza y conquista tu día con IA',
+        alt_subtitle: 'Tareas diarias hechas fáciles, justo en tus manos',
+
+        // 404 Page
+        not_found_title: '404 - Página no encontrada',
+        not_found_message: '¡Vaya! La página que buscas no existe.',
+        not_found_image_alt: '404 No encontrado',
+        go_back_home: 'Regresar a la página principal',
+        go_back_home_aria: 'Regresar a la página principal',
+
+        // Form labels
+        email: 'Correo electrónico',
+        password: 'Contraseña',
+        new_password: 'Nueva Contraseña',
+        confirm_password: 'Confirmar Contraseña',
+
+        // Validation messages
+        email_required:
+          '¡Vaya! Parece que olvidaste ingresar tu correo electrónico',
+        invalid_email: 'Formato de correo electrónico no válido',
+        password_required: '¡Uy! No olvides ingresar tu contraseña.',
+        new_password_required: 'Por favor, ingresa una nueva contraseña',
+        confirm_password_required: 'Por favor, confirma tu nueva contraseña',
+        password_min_length: 'La contraseña debe tener al menos 6 caracteres',
+
+        // Buttons and links
+        forgot_password: '¿Olvidaste tu contraseña?',
+        sign_in: 'Iniciar sesión',
+        reset_password: 'Restablecer contraseña',
+        or: 'O',
+        no_account: '¿No tienes una cuenta?',
+        sign_up: 'Regístrate',
+        send_magic_link: 'Enviar link magico',
+        back_to_login: 'Regresar al login',
+        already_have_account: '¿Ya tienes alguna cuenta?',
+
+        // Aria labels
+        form_aria_label: 'Formulario de inicio de sesión',
+        email_aria_label: 'Introduce tu correo electrónico',
+        password_aria_label: 'Introduce tu contraseña',
+        new_password_aria_label: 'Introduce una nueva contraseña',
+        confirm_password_aria_label: 'Confirma tu nueva contraseña',
+
+        // Social login
+        sign_in_with_google: 'Inicia sesión con Google',
+        sign_in_with_linkedin: 'Inicia sesión con LinkedIn',
+        login_with_google: 'Inicia sesión con Google',
       },
     },
   },

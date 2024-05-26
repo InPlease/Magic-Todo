@@ -16,6 +16,7 @@ import {
 } from '../utils/constants/contants'
 // Sounds
 import clickEffect from '../assets/sound/click_effect_01.wav'
+import ChatComponent from '../components/Chat/ChatComponent'
 
 const TodoSection: React.FC = () => {
   const { state, dispatch } = useTaskContext()
@@ -35,7 +36,7 @@ const TodoSection: React.FC = () => {
     dispatch({ type: DELETE_ALL, payload: '' })
   }
   return (
-    <>
+    <section className='w-full flex justify-center items-center flex-col'>
       <TaskCounted />
       <TaskForm onAdd={addTask} />
       <TaskList
@@ -44,7 +45,8 @@ const TodoSection: React.FC = () => {
         onDelete={deleteTask}
         onDeleteAll={onDeleteAll}
       />
-    </>
+      <ChatComponent />
+    </section>
   )
 }
 export default TodoSection

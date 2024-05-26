@@ -1,57 +1,151 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/**/*.{js,jsx,ts,tsx}', // Ajusta según la estructura de tu proyecto
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     screens: {
-      xs: '200px', // @media (min-width: 200px) { ... }
-      sm: '640px', // @media (min-width: 640px) { ... }
-      md: '768px', // @media (min-width: 768px) { ... }
-      lg: '1024px', // @media (min-width: 1024px) { ... }
-      xl: '1280px', // @media (min-width: 1280px) { ... }
-      '2xl': '1536px', // @media (min-width: 1536px) { ... }
+      xs: '200px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
+    maxWidth: {
+      'auth-forms': '500px',
     },
     extend: {
+      margin: {
+        x20: '20px',
+        x10: '20px',
+      },
+      space: {
+        x20: '20px',
+      },
+      transitionDuration: {
+        'buttons-duration': '400ms',
+      },
+      fontSize: {
+        'base-form-subtitle': [
+          '1.1em',
+          {
+            lineHeight: '20px',
+            letterSpacing: '1px',
+            fontWeight: '100',
+          },
+        ],
+        'sm-form-subtitle': [
+          '1em',
+          {
+            lineHeight: '20px',
+            letterSpacing: '1px',
+            fontWeight: '100',
+          },
+        ],
+        'xs-form-subtitle': [
+          '.9em',
+          {
+            lineHeight: '18px',
+            letterSpacing: '1px',
+            fontWeight: '100',
+          },
+        ],
+        'base-form-title': [
+          '2em',
+          {
+            lineHeight: '20px',
+            letterSpacing: '1px',
+            fontWeight: '500',
+          },
+        ],
+        'sm-form-title': [
+          '2em',
+          {
+            lineHeight: '20px',
+            letterSpacing: '1px',
+            fontWeight: '500',
+          },
+        ],
+        'xs-form-title': [
+          '2em',
+          {
+            lineHeight: '18px',
+            letterSpacing: '1px',
+            fontWeight: '600',
+          },
+        ],
+        'xs-bottomTextForm': [
+          '.8em',
+          {
+            lineHeight: '18px',
+            letterSpacing: '2px',
+            fontWeight: '400',
+          },
+        ],
+        'sm-bottomTextForm': [
+          '.9em',
+          {
+            lineHeight: '18px',
+            letterSpacing: '2px',
+            fontWeight: '300',
+          },
+        ],
+      },
       fontFamily: {
-        sans: ['Ubuntu', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
       },
       colors: {
         green: '#5abf4b',
         beige: '#d9c6b0',
         orange: '#f25835',
         red: '#cb2c1d',
+        'error-red': '#f31f45',
         black: '#121212',
         gray: '#1e1e1e',
+        gray2: '#3e3e3e',
       },
       width: {
         full: '100%',
       },
       maxWidth: {
         maxpage: '500px',
+        'button-lg': '450px',
+        'xs-button-lg': '256px',
       },
       maxHeight: {
         maxpage: '500px',
+      },
+
+      // Effects
+      animation: {
+        gradient: 'gradient 8s linear infinite',
+        pulse: 'pulse 2s infinite',
+        'bounce-slow': 'bounce 3s infinite',
+        shimmer: 'shimmer 8s infinite',
+      },
+      keyframes: {
+        shimmer: {
+          '0%, 90%, 100%': {
+            'background-position': 'calc(-100% - var(--shimmer-width)) 0',
+          },
+          '30%, 60%': {
+            'background-position': 'calc(100% + var(--shimmer-width)) 0',
+          },
+        },
+        gradient: {
+          to: {
+            backgroundPosition: 'var(--bg-size) 0',
+          },
+        },
+        pulse: {
+          '0%, 100%': { r: '1', fill: '#d9c6b0' }, // Change this to your specific color
+          '50%': { r: '2', fill: '#f25835' }, // Change this to your specific color
+        },
       },
     },
     borderRadius: {
       full: '100px',
       default: '5px',
     },
-    keyframes: {
-      openbox: {
-        '0%': { height: '0px', width: '0px' },
-        '100%': { height: '80vh', width: '100%' },
-      },
-      closebox: {
-        '0%': { height: '80vh', width: '100%' },
-        '100%': { height: '0px', width: '0px' },
-      },
-    },
-    animation: {
-      openbox: 'openbox 0.5s ease-in-out forwards',
-      closebox: 'closebox 0.5s ease-in-out forwards',
-    },
   },
-  plugins: [],
+  plugins: ['postcss-import'],
 }
