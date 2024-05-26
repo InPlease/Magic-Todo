@@ -23,7 +23,7 @@ module.exports = {
           {
             lineHeight: '20px',
             letterSpacing: '1px',
-            fontWeight: '200',
+            fontWeight: '100',
           },
         ],
         'sm-form-subtitle': [
@@ -31,15 +31,15 @@ module.exports = {
           {
             lineHeight: '20px',
             letterSpacing: '1px',
-            fontWeight: '200',
+            fontWeight: '100',
           },
         ],
         'xs-form-subtitle': [
-          '.8em',
+          '.9em',
           {
             lineHeight: '18px',
             letterSpacing: '1px',
-            fontWeight: '200',
+            fontWeight: '100',
           },
         ],
         'base-form-title': [
@@ -66,9 +66,25 @@ module.exports = {
             fontWeight: '600',
           },
         ],
+        'xs-bottomTextForm': [
+          '.8em',
+          {
+            lineHeight: '18px',
+            letterSpacing: '2px',
+            fontWeight: '400',
+          },
+        ],
+        'sm-bottomTextForm': [
+          '.9em',
+          {
+            lineHeight: '18px',
+            letterSpacing: '2px',
+            fontWeight: '300',
+          },
+        ],
       },
       fontFamily: {
-        source: ['Source Code Pro', 'monospace'],
+        roboto: ['Roboto', 'sans-serif'],
       },
       colors: {
         green: '#5abf4b',
@@ -89,24 +105,27 @@ module.exports = {
       maxHeight: {
         maxpage: '500px',
       },
+
+      // Effects
+      animation: {
+        gradient: 'gradient 8s linear infinite',
+        pulse: 'pulse 2s infinite',
+      },
+      keyframes: {
+        gradient: {
+          to: {
+            backgroundPosition: 'var(--bg-size) 0',
+          },
+        },
+        pulse: {
+          '0%, 100%': { r: '1', fill: '#d9c6b0' }, // Change this to your specific color
+          '50%': { r: '2', fill: '#f25835' }, // Change this to your specific color
+        },
+      },
     },
     borderRadius: {
       full: '100px',
       default: '5px',
-    },
-    keyframes: {
-      openbox: {
-        '0%': { height: '0px', width: '0px' },
-        '100%': { height: '80vh', width: '100%' },
-      },
-      closebox: {
-        '0%': { height: '80vh', width: '100%' },
-        '100%': { height: '0px', width: '0px' },
-      },
-    },
-    animation: {
-      openbox: 'openbox 0.5s ease-in-out forwards',
-      closebox: 'closebox 0.5s ease-in-out forwards',
     },
   },
   plugins: [],

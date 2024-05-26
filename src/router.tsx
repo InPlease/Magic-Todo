@@ -1,9 +1,15 @@
 // Dependencies
 import { createBrowserRouter } from 'react-router-dom'
-// Components
+// Context
 import TaskProvider from './utils/context/TaskContext'
+
+// Dashboards
 import TodoSection from './sections/TodoSection'
-import Login from './components/Login/Login'
+
+// Auth
+import Login from './components/Auth/Login'
+import RecoverChangePassword from './components/Auth/RecoverChangePassword'
+import RecoverMagicLink from './components/Auth/RecoverMagicLink'
 
 export const router = createBrowserRouter([
   {
@@ -14,9 +20,18 @@ export const router = createBrowserRouter([
       </TaskProvider>
     ),
   },
+  /* Auth */
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/recover/magic-link',
+    element: <RecoverMagicLink />,
+  },
+  {
+    path: '/recover/change-password',
+    element: <RecoverChangePassword />,
   },
 ])
 

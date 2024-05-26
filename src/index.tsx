@@ -12,6 +12,8 @@ import { router } from './router'
 // Components
 import Navbar from './components/Navbar'
 import BackToTopButton from './components/BackToTheTop'
+import DotsBackgroundComponent from './components/Effects/DotsBackgroundComponent'
+import { cn } from './utils/magicUI'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
@@ -24,6 +26,11 @@ root.render(
         <RouterProvider router={router} />
       </React.StrictMode>
     </main>
+    <DotsBackgroundComponent
+      className={cn(
+        '[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]'
+      )}
+    />
     <footer>
       <BackToTopButton />
     </footer>
