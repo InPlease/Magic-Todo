@@ -23,7 +23,7 @@
 
   // Forms Container
   .form-container {
-    @apply space-y-[20px];
+    @apply mb-[20px] space-y-[20px];
   }
 
   .form-field-container {
@@ -48,6 +48,9 @@
   // Buttons
   .primary-button {
     @apply focus:outline focus:outline-[#eb9986] focus:outline-[3px] ease-in-out duration-buttons-duration transition-colors my-[25px] rounded-default w-full px-4 py-2 bg-orange text-white hover:bg-red;
+  }
+  .primary-no-my-button {
+    @apply focus:outline focus:outline-[#eb9986] focus:outline-[3px] ease-in-out duration-buttons-duration transition-colors rounded-default w-full px-4 py-2 bg-orange text-white hover:bg-red;
   }
   .secondary-button {
     @apply ease-in-out duration-300 my-[25px] rounded-default w-full px-4 py-2 bg-red text-white hover:bg-orange;

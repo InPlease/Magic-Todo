@@ -15,7 +15,7 @@ const LoginForm: React.FC = () => {
     formAriaLabel: 'form_aria_label',
     enableOrSeparator: true,
     forgotPasswordText: 'forgot_password',
-    forgotPasswordLink: '#',
+    forgotPasswordLink: '/recover/magic-link',
     submitButtonText: 'sign_in',
     bottomText: 'sign_up',
     bottomLinkUrl: '#',

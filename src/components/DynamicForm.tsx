@@ -93,18 +93,21 @@ const DynamicForm: React.FC<DynamicFormProps> = ({ formConfig, onSubmit }) => {
             <div className="flex justify-between items-center">
               <a
                 href={formConfig.forgotPasswordLink}
-                className="text-sm text-gray-600 underline"
+                className="font-light text-white underline"
               >
                 {t(formConfig.forgotPasswordText)}
               </a>
             </div>
           )}
-          <button type="submit" className="primary-button">
+          <button
+            type="submit"
+            className={formConfig.submitButotnClass || 'primary-button'}
+          >
             {t(formConfig.submitButtonText)}
           </button>
         </form>
 
-        <p className="mt-[10px] xs:xs-bottomTextForm sm:text-sm-bottomTextForm text-center">
+        <p className="mt-[20px] xs:xs-bottomTextForm sm:text-sm-bottomTextForm text-center">
           <a
             href={formConfig.bottomLinkUrl}
             className="mr-[5px] ml-[5px] text-orange underline"

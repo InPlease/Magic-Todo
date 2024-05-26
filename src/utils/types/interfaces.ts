@@ -32,6 +32,7 @@ export interface ValidationRule {
     submitButtonText: string;
     bottomText: string;
     bottomLinkUrl: string;
+    submitButotnClass?:string;
     bottomSecondaryText: string;
     socialLogins?: SocialLoginConfig[];
     fields: FieldConfig[];

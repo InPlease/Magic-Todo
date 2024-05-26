@@ -31,7 +31,7 @@ export function DotsBackgroundComponent({
     <svg
       aria-hidden="true"
       className={cn(
-        'pointer-events-none absolute inset-0 h-full w-full opacity-50',
+        'pointer-events-none absolute inset-0 h-full w-full opacity-20',
         className
       )}
       {...props}

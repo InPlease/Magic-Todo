@@ -17,6 +17,7 @@ const LoginForm: React.FC = () => {
     forgotPasswordText: '',
     forgotPasswordLink: '',
     submitButtonText: 'send_magic_link',
+    submitButotnClass: 'primary-no-my-button',
     bottomLinkUrl: '/login',
     bottomText: 'back_to_login',
     bottomSecondaryText: '',
