@@ -12,6 +12,7 @@ export interface ValidationRule {
       pattern?: ValidationRule;
       minLength?: ValidationRule;
       maxLength?: ValidationRule;
+      validate?: (value: string, context: any) => string | boolean 
     };
   }
   

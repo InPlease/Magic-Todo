@@ -14,6 +14,9 @@ i18n.use(initReactI18next).init({
         welcome: 'Welcome!',
         welcome_recover_magic_link: 'Get Back In',
         welcome_recover_change_password: 'Reset Password',
+        welcome_to_registration: 'Welcome to the family',
+        please_fill_in_the_details:
+          'Thank you for trusting our services. We hope you feel like family here. Remember, goals are not achieved in one day 😚',
         subititle_recover_change_password:
           'Keep your account secure with a new password.',
         subititle_recover_magic_link:
@@ -72,6 +75,9 @@ i18n.use(initReactI18next).init({
         welcome: '¡Bienvenido!',
         welcome_recover_magic_link: 'Recupera el acceso',
         welcome_recover_change_password: 'Restablecer contraseña',
+        welcome_to_registration: '¡Yaaahoooy!',
+        please_fill_in_the_details:
+          'Gracias por confiar en nosotros, espero te sientas en familia aca 😚',
         subititle_recover_change_password:
           'Mantén segura tu cuenta con una nueva contraseña.',
         subtitle_recover_magic_link:
@@ -110,7 +116,7 @@ i18n.use(initReactI18next).init({
         sign_up: 'Regístrate',
         send_magic_link: 'Enviar link magico',
         back_to_login: 'Regresar al login',
-        already_have_account: 'si ya tienes una cuenta',
+        already_have_account: '¿Ya tienes alguna cuenta?',
 
         // Aria labels
         form_aria_label: 'Formulario de inicio de sesión',

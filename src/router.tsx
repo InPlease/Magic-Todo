@@ -13,6 +13,7 @@ import RecoverMagicLink from './components/Auth/RecoverMagicLink'
 
 // Erro Page
 import ErrorPage from './components/404/404Page'
+import RegistrationComponent from './components/Auth/RegistrationComponent'
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/registration',
+    element: <RegistrationComponent />,
   },
   /** This should change in the future */
   {
