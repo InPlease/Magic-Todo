@@ -140,5 +140,5 @@ module.exports = {
       default: '5px',
     },
   },
-  plugins: [],
+  plugins: ['postcss-import'],
 }
