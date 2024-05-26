@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FC, useRef, useEffect } from 'react'
+import { useState, ChangeEvent, FC, useRef, useEffect } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { useTranslation } from 'react-i18next'
 import HotKeyIconComponent from '../HotKeyIconComponent'

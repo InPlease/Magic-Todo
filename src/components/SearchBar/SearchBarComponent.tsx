@@ -1,11 +1,4 @@
-import React, {
-  useState,
-  ChangeEvent,
-  KeyboardEvent,
-  FC,
-  useRef,
-  useEffect,
-} from 'react'
+import React, { useState, ChangeEvent, KeyboardEvent, FC } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import {
   commandOptions,

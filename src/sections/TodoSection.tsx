@@ -6,33 +6,28 @@ import useSound from 'use-sound'
 // State
 import { useTaskContext } from '../utils/context/TaskContext'
 // Constants
-import {
-  ADD_TASK,
-  DELETE_ALL,
-  TOGGLE_TASK,
-  DELETE_TASK,
-} from '../utils/constants/contants'
+import { ADD_TASK } from '../utils/constants/contants'
 // Sounds
 import clickEffect from '../assets/sound/click_effect_01.wav'
 import ChatComponent from '../components/Chat/ChatComponent'
 
 const TodoSection: React.FC = () => {
-  const { state, dispatch } = useTaskContext()
+  const { dispatch } = useTaskContext()
   const [play] = useSound(clickEffect)
 
   const addTask = (text: string) => {
     dispatch({ type: ADD_TASK, payload: text })
     play()
   }
-  const toggleTask = (id: number) => {
-    dispatch({ type: TOGGLE_TASK, payload: id })
-  }
-  const deleteTask = (id: number) => {
-    dispatch({ type: DELETE_TASK, payload: id })
-  }
-  const onDeleteAll = () => {
-    dispatch({ type: DELETE_ALL, payload: '' })
-  }
+  // const toggleTask = (id: number) => {
+  //   dispatch({ type: TOGGLE_TASK, payload: id })
+  // }
+  // const deleteTask = (id: number) => {
+  //   dispatch({ type: DELETE_TASK, payload: id })
+  // }
+  // const onDeleteAll = () => {
+  //   dispatch({ type: DELETE_ALL, payload: '' })
+  // }
   return (
     <section className="w-full flex justify-center items-center flex-col">
       <ChatComponent />
