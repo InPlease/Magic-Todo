@@ -14,6 +14,13 @@ module.exports = {
       'auth-forms': '500px',
     },
     extend: {
+      margin: {
+        x20: '20px',
+        x10: '20px',
+      },
+      space: {
+        x20: '20px',
+      },
       transitionDuration: {
         'buttons-duration': '400ms',
       },
