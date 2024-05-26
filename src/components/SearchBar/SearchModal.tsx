@@ -9,13 +9,13 @@ interface SearchModalProps {
 
 const SearchModal: FC<SearchModalProps> = ({ onClose }) => {
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const [results, setResults] = useState<string[]>([])
+  const [results] = useState<string[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslation()
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setSearchQuery(event.target.value)
-    // Implement your search logic here and update results
+    // Implement your search logic here and update results`
   }
 
   useEffect(() => {
@@ -29,7 +29,6 @@ const SearchModal: FC<SearchModalProps> = ({ onClose }) => {
   return (
     <div
       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-      role="dialog"
       aria-labelledby="search-modal-title"
       aria-modal="true"
     >
@@ -48,18 +47,12 @@ const SearchModal: FC<SearchModalProps> = ({ onClose }) => {
             onChange={handleSearchChange}
           />
         </div>
-        <ul className="mt-4 space-y-2" role="list">
+        <ul className="mt-4 space-y-2">
           {results.length === 0 ? (
-            <li className="text-white" role="listitem">
-              {t('search_modal_no_results')}
-            </li>
+            <li className="text-white">{t('search_modal_no_results')}</li>
           ) : (
             results.map((result, index) => (
-              <li
-                key={index}
-                className="p-2 border border-gray-200 rounded-lg"
-                role="listitem"
-              >
+              <li key={index} className="p-2 border border-gray-200 rounded-lg">
                 {result}
               </li>
             ))
