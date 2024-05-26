@@ -67,6 +67,18 @@ i18n.use(initReactI18next).init({
         sign_in_with_google: 'Sign in with Google',
         sign_in_with_linkedin: 'Sign in with LinkedIn',
         login_with_google: 'Login with Google',
+
+        // Suggestions examples
+        create_task_example:
+          '/create - You can create a quick task by writing:',
+        search_task_example:
+          '/search - Will open a new window where you can search tasks, feed posts, etc.',
+
+        // Search Modal
+        search_modal_title: 'Search',
+        search_modal_placeholder: 'Search...',
+        search_modal_no_results: 'No results found.',
+        search_modal_close: 'Close search modal',
       },
     },
     es: {
@@ -75,9 +87,9 @@ i18n.use(initReactI18next).init({
         welcome: '¡Bienvenido!',
         welcome_recover_magic_link: 'Recupera el acceso',
         welcome_recover_change_password: 'Restablecer contraseña',
-        welcome_to_registration: '¡Yaaahoooy!',
+        welcome_to_registration: '¡Bienvenido a la familia!',
         please_fill_in_the_details:
-          'Gracias por confiar en nosotros, espero te sientas en familia aca 😚',
+          'Gracias por confiar en nuestros servicios. Esperamos que te sientas como en familia aquí. Recuerda, las metas no se logran en un día 😚',
         subititle_recover_change_password:
           'Mantén segura tu cuenta con una nueva contraseña.',
         subtitle_recover_magic_link:
@@ -114,9 +126,9 @@ i18n.use(initReactI18next).init({
         or: 'O',
         no_account: '¿No tienes una cuenta?',
         sign_up: 'Regístrate',
-        send_magic_link: 'Enviar link magico',
-        back_to_login: 'Regresar al login',
-        already_have_account: '¿Ya tienes alguna cuenta?',
+        send_magic_link: 'Enviar enlace mágico',
+        back_to_login: 'Regresar al inicio de sesión',
+        already_have_account: '¿Ya tienes una cuenta?',
 
         // Aria labels
         form_aria_label: 'Formulario de inicio de sesión',
@@ -129,6 +141,18 @@ i18n.use(initReactI18next).init({
         sign_in_with_google: 'Inicia sesión con Google',
         sign_in_with_linkedin: 'Inicia sesión con LinkedIn',
         login_with_google: 'Inicia sesión con Google',
+
+        // Suggestions examples
+        create_task_example:
+          '/create - Puedes crear una tarea rápida escribiendo:',
+        search_task_example:
+          '/search - Abrirá una nueva ventana donde puedes buscar tareas, publicaciones de feed, etc.',
+
+        // Search Modal
+        search_modal_title: 'Buscar',
+        search_modal_placeholder: 'Buscar...',
+        search_modal_no_results: 'No se encontraron resultados.',
+        search_modal_close: 'Cerrar modal de búsqueda',
       },
     },
   },

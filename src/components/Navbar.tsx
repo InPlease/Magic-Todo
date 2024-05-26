@@ -3,7 +3,7 @@ import React from 'react'
 import { Languages } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import LogoComponent from './LogoComponent'
-import CommandSearchBar from './SearchBarComponent'
+import CommandSearchBar from './SearchBar/SearchBarComponent' // Adjust the import path as needed
 
 const ErrorImage: React.FC = () => {
   const { t, i18n } = useTranslation()
@@ -18,7 +18,7 @@ const ErrorImage: React.FC = () => {
         <div className="show-md-hide-xs flex-grow-[.9]">
           <CommandSearchBar />
         </div>
-        <div className="show-xs-hide-md w-full xs:space-x-5 xs:justify-center xs:items-center">
+        <div className="show-xs-hide-md-flex w-full space-x-5 justify-center items-center">
           <CommandSearchBar />
           <div id="navbar-default">
             <button
@@ -41,7 +41,10 @@ const ErrorImage: React.FC = () => {
             </button>
           </div>
         </div>
-        <button className="show-md-hide-xs primary-button max-w-fit">
+        <button
+          onClick={() => toggleLanguage()}
+          className="show-md-hide-xs primary-button max-w-fit"
+        >
           <Languages />
         </button>
       </div>

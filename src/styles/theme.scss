@@ -16,6 +16,10 @@
   @apply xs:block md:hidden;
 }
 
+.show-xs-hide-md-flex {
+  @apply xs:flex md:hidden;
+}
+
 .show-md-hide-xs {
   @apply md:block xs:hidden;
 }
