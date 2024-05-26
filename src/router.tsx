@@ -32,6 +32,11 @@ export const router = createBrowserRouter([
     path: '/login',
     element: <Login />,
   },
+  /** This should change in the future */
+  {
+    path: '/',
+    element: <Login />,
+  },
   {
     path: '/recover/magic-link',
     element: <RecoverMagicLink />,

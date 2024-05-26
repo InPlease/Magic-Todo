@@ -14,9 +14,9 @@ i18n.use(initReactI18next).init({
         welcome: 'Welcome!',
         welcome_recover_magic_link: 'Get Back In',
         welcome_recover_change_password: 'Reset Password',
-        subtitle_recover_change_password:
+        subititle_recover_change_password:
           'Keep your account secure with a new password.',
-        subtitle_recover_magic_link:
+        subititle_recover_magic_link:
           'Recover your account and rejoin the journey',
         subtitle: 'Simplify, organize, and conquer your day with AI',
         alt_subtitle: 'Daily tasks made easy, right in your hands',
@@ -72,7 +72,7 @@ i18n.use(initReactI18next).init({
         welcome: '¡Bienvenido!',
         welcome_recover_magic_link: 'Recupera el acceso',
         welcome_recover_change_password: 'Restablecer contraseña',
-        subtitle_recover_change_password:
+        subititle_recover_change_password:
           'Mantén segura tu cuenta con una nueva contraseña.',
         subtitle_recover_magic_link:
           'Recupera tu cuenta y vuelve a unirte al viaje',
