@@ -2,9 +2,7 @@
 import React from 'react'
 import useSound from 'use-sound'
 // Components
-import TaskList from '../components/TaskContainer'
-import TaskForm from '../components/TaskFormulary'
-import TaskCounted from '../components/TaskCounter'
+
 // State
 import { useTaskContext } from '../utils/context/TaskContext'
 // Constants
@@ -36,15 +34,7 @@ const TodoSection: React.FC = () => {
     dispatch({ type: DELETE_ALL, payload: '' })
   }
   return (
-    <section className='w-full flex justify-center items-center flex-col'>
-      <TaskCounted />
-      <TaskForm onAdd={addTask} />
-      <TaskList
-        tasks={state.tasks}
-        onToggle={toggleTask}
-        onDelete={deleteTask}
-        onDeleteAll={onDeleteAll}
-      />
+    <section className="w-full flex justify-center items-center flex-col">
       <ChatComponent />
     </section>
   )

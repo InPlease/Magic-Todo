@@ -110,6 +110,7 @@ module.exports = {
         maxpage: '500px',
         'button-lg': '450px',
         'xs-button-lg': '256px',
+        fit: 'fit-content',
       },
       maxHeight: {
         maxpage: '500px',
