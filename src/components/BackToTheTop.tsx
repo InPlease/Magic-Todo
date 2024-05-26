@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ArrowUpLeft } from 'lucide-react'
+
 const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false)
   const { t } = useTranslation()

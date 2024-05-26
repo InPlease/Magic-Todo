@@ -1,7 +1,5 @@
 import React from 'react'
 import DynamicForm from '../DynamicForm'
-import googleLogo from '../../assets/icons/google-logo.svg'
-
 import { FormConfig } from '../../utils/types/interfaces'
 
 const LoginForm: React.FC = () => {
