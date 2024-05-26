@@ -11,7 +11,14 @@ import Login from './components/Auth/Login'
 import RecoverChangePassword from './components/Auth/RecoverChangePassword'
 import RecoverMagicLink from './components/Auth/RecoverMagicLink'
 
+// Erro Page
+import ErrorPage from './components/404/404Page'
+
 export const router = createBrowserRouter([
+  {
+    path: '*',
+    element: <ErrorPage />,
+  },
   {
     path: '/todo',
     element: (

@@ -14,12 +14,19 @@ i18n.use(initReactI18next).init({
         welcome: 'Welcome!',
         welcome_recover_magic_link: 'Get Back In',
         welcome_recover_change_password: 'Reset Password',
-        subititle_recover_change_password:
+        subtitle_recover_change_password:
           'Keep your account secure with a new password.',
-        subititle_recover_magic_link:
+        subtitle_recover_magic_link:
           'Recover your account and rejoin the journey',
         subtitle: 'Simplify, organize, and conquer your day with AI',
         alt_subtitle: 'Daily tasks made easy, right in your hands',
+
+        // 404 Page
+        not_found_title: '404 - Page Not Found',
+        not_found_message: 'Oops! The page you are looking for does not exist.',
+        not_found_image_alt: '404 Not Found',
+        go_back_home: 'Go Back Home',
+        go_back_home_aria: 'Go back to home page',
 
         // Form labels
         email: 'Email',
@@ -48,6 +55,10 @@ i18n.use(initReactI18next).init({
 
         // Aria labels
         form_aria_label: 'Login form',
+        email_aria_label: 'Enter your email',
+        password_aria_label: 'Enter your password',
+        new_password_aria_label: 'Enter a new password',
+        confirm_password_aria_label: 'Confirm your new password',
 
         // Social login
         sign_in_with_google: 'Sign in with Google',
@@ -61,12 +72,19 @@ i18n.use(initReactI18next).init({
         welcome: '¡Bienvenido!',
         welcome_recover_magic_link: 'Recupera el acceso',
         welcome_recover_change_password: 'Restablecer contraseña',
-        subititle_recover_change_password:
+        subtitle_recover_change_password:
           'Mantén segura tu cuenta con una nueva contraseña.',
-        subititle_recover_magic_link:
+        subtitle_recover_magic_link:
           'Recupera tu cuenta y vuelve a unirte al viaje',
         subtitle: 'Simplifica, organiza y conquista tu día con IA',
         alt_subtitle: 'Tareas diarias hechas fáciles, justo en tus manos',
+
+        // 404 Page
+        not_found_title: '404 - Página no encontrada',
+        not_found_message: '¡Vaya! La página que buscas no existe.',
+        not_found_image_alt: '404 No encontrado',
+        go_back_home: 'Regresar a la página principal',
+        go_back_home_aria: 'Regresar a la página principal',
 
         // Form labels
         email: 'Correo electrónico',
@@ -96,6 +114,10 @@ i18n.use(initReactI18next).init({
 
         // Aria labels
         form_aria_label: 'Formulario de inicio de sesión',
+        email_aria_label: 'Introduce tu correo electrónico',
+        password_aria_label: 'Introduce tu contraseña',
+        new_password_aria_label: 'Introduce una nueva contraseña',
+        confirm_password_aria_label: 'Confirma tu nueva contraseña',
 
         // Social login
         sign_in_with_google: 'Inicia sesión con Google',

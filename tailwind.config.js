@@ -101,6 +101,8 @@ module.exports = {
       },
       maxWidth: {
         maxpage: '500px',
+        'button-lg': '450px',
+        'xs-button-lg': '256px',
       },
       maxHeight: {
         maxpage: '500px',
@@ -110,6 +112,7 @@ module.exports = {
       animation: {
         gradient: 'gradient 8s linear infinite',
         pulse: 'pulse 2s infinite',
+        'bounce-slow': 'bounce 3s infinite',
       },
       keyframes: {
         gradient: {
