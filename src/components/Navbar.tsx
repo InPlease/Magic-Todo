@@ -2,6 +2,8 @@
 import React from 'react'
 import { Languages } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import LogoComponent from './LogoComponent'
+
 const ErrorImage: React.FC = () => {
   const { t, i18n } = useTranslation()
   const toggleLanguage = () => {
@@ -11,9 +13,7 @@ const ErrorImage: React.FC = () => {
   return (
     <nav>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <h2 className="uppercase text-beige">
-          Magic <span className="text-orange">Todo</span>
-        </h2>
+        <LogoComponent />
         <div className="block" id="navbar-default">
           <button
             onClick={toggleLanguage}
@@ -29,7 +29,9 @@ const ErrorImage: React.FC = () => {
             }
             className="rounded-default hover:text-white"
           >
-            <Languages />
+            <button className="primary-button">
+              <Languages />
+            </button>
           </button>
         </div>
       </div>

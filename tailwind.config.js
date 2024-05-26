@@ -113,8 +113,17 @@ module.exports = {
         gradient: 'gradient 8s linear infinite',
         pulse: 'pulse 2s infinite',
         'bounce-slow': 'bounce 3s infinite',
+        shimmer: 'shimmer 8s infinite',
       },
       keyframes: {
+        shimmer: {
+          '0%, 90%, 100%': {
+            'background-position': 'calc(-100% - var(--shimmer-width)) 0',
+          },
+          '30%, 60%': {
+            'background-position': 'calc(100% + var(--shimmer-width)) 0',
+          },
+        },
         gradient: {
           to: {
             backgroundPosition: 'var(--bg-size) 0',
