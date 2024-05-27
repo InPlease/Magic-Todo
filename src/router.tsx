@@ -1,55 +1,32 @@
-// Dependencies
-import { createBrowserRouter } from 'react-router-dom'
-// Context
+// router.tsx
+import { Route, Routes } from 'react-router-dom'
 import TaskProvider from './utils/context/TaskContext'
-
-// Dashboards
 import TodoSection from './sections/TodoSection'
-
-// Auth
 import Login from './components/Auth/Login'
 import RecoverChangePassword from './components/Auth/RecoverChangePassword'
 import RecoverMagicLink from './components/Auth/RecoverMagicLink'
-
-// Erro Page
 import ErrorPage from './components/404/404Page'
 import RegistrationComponent from './components/Auth/RegistrationComponent'
 
-export const router = createBrowserRouter([
-  {
-    path: '*',
-    element: <ErrorPage />,
-  },
-  {
-    path: '/todo',
-    element: (
-      <TaskProvider>
-        <TodoSection />
-      </TaskProvider>
-    ),
-  },
-  /* Auth */
-  {
-    path: '/login',
-    element: <Login />,
-  },
-  {
-    path: '/registration',
-    element: <RegistrationComponent />,
-  },
-  /** This should change in the future */
-  {
-    path: '/',
-    element: <Login />,
-  },
-  {
-    path: '/recover/magic-link',
-    element: <RecoverMagicLink />,
-  },
-  {
-    path: '/recover/change-password',
-    element: <RecoverChangePassword />,
-  },
-])
+export const RoutesComponent = () => (
+  <Routes>
+    <Route path="/login" element={<Login />} />
+    <Route path="/registration" element={<RegistrationComponent />} />
+    <Route
+      path="/todo"
+      element={
+        <TaskProvider>
+          <TodoSection />
+        </TaskProvider>
+      }
+    />
+    <Route path="/recover/magic-link" element={<RecoverMagicLink />} />
+    <Route
+      path="/recover/change-password"
+      element={<RecoverChangePassword />}
+    />
+    <Route path="*" element={<ErrorPage />} />
+  </Routes>
+)
 
-export default router
+export default RoutesComponent

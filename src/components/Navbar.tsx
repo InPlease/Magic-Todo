@@ -4,22 +4,36 @@ import { Languages } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import LogoComponent from './LogoComponent'
 import CommandSearchBar from './SearchBar/SearchBarComponent' // Adjust the import path as needed
+import { useRouteVisibility } from '../hooks/useRouteVisibility'
 
 const ErrorImage: React.FC = () => {
   const { t, i18n } = useTranslation()
+  const isComponentVisible = useRouteVisibility([
+    '/todo',
+    '/magic-link',
+    '/change-password',
+  ])
+
   const toggleLanguage = () => {
     const newLanguage = i18n.language === 'en' ? 'es' : 'en'
     i18n.changeLanguage(newLanguage)
   }
+
   return (
     <nav>
       <div className="xs:flex-col md:flex-row max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <LogoComponent />
-        <div className="show-md-hide-xs flex-grow-[.9]">
-          <CommandSearchBar />
-        </div>
+
+        {isComponentVisible && (
+          <>
+            <div className="show-md-hide-xs flex-grow-[.9]">
+              <CommandSearchBar />
+            </div>
+          </>
+        )}
+
         <div className="show-xs-hide-md-flex w-full space-x-5 justify-center items-center">
-          <CommandSearchBar />
+          {isComponentVisible && <CommandSearchBar />}
           <div id="navbar-default">
             <button
               onClick={toggleLanguage}
@@ -51,4 +65,5 @@ const ErrorImage: React.FC = () => {
     </nav>
   )
 }
+
 export default ErrorImage
