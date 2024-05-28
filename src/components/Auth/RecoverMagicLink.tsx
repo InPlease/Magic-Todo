@@ -1,6 +1,9 @@
+// Dependencies
 import React from 'react'
-import DynamicForm from '../DynamicForm'
+// Interfaces
 import { FormConfig } from '../../utils/types/interfaces'
+// Components
+import DynamicForm from '../DynamicForm'
 
 const LoginForm: React.FC = () => {
   const onSubmit = (data: any) => {

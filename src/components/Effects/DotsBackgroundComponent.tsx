@@ -1,3 +1,4 @@
+import { useRouteVisibility } from '../../hooks/useRouteVisibility'
 import { cn } from '../../utils/magicUI'
 import { useId } from 'react'
 
@@ -25,37 +26,52 @@ export function DotsBackgroundComponent({
   ...props
 }: DotPatternProps) {
   const id = useId()
+  const isComponentVisible = useRouteVisibility([
+    '/login',
+    '/magic-link',
+    '/change-password',
+    '/registration',
+  ])
 
   return (
-    <svg
-      aria-hidden="true"
-      className={cn(
-        'pointer-events-none absolute inset-0 h-full w-full opacity-20',
-        className
-      )}
-      {...props}
-    >
-      <defs>
-        <pattern
-          id={id}
-          width={width}
-          height={height}
-          patternUnits="userSpaceOnUse"
-          patternContentUnits="userSpaceOnUse"
-          x={x}
-          y={y}
+    <>
+      {isComponentVisible && (
+        <svg
+          aria-hidden="true"
+          className={cn(
+            'pointer-events-none absolute inset-0 h-full w-full opacity-20',
+            className
+          )}
+          {...props}
         >
-          <circle
-            id="pattern-circle"
-            cx={cy}
-            cy={cy}
-            r={cr}
-            className="animate-pulse"
+          <defs>
+            <pattern
+              id={id}
+              width={width}
+              height={height}
+              patternUnits="userSpaceOnUse"
+              patternContentUnits="userSpaceOnUse"
+              x={x}
+              y={y}
+            >
+              <circle
+                id="pattern-circle"
+                cx={cy}
+                cy={cy}
+                r={cr}
+                className="animate-pulse"
+              />
+            </pattern>
+          </defs>
+          <rect
+            width="100%"
+            height="100%"
+            strokeWidth={0}
+            fill={`url(#${id})`}
           />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" strokeWidth={0} fill={`url(#${id})`} />
-    </svg>
+        </svg>
+      )}
+    </>
   )
 }
 

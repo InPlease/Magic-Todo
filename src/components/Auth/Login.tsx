@@ -1,7 +1,10 @@
+// Dependencies
 import React from 'react'
-import DynamicForm from '../DynamicForm'
-import googleLogo from '../../assets/icons/google-logo.svg'
 import { FormConfig } from '../../utils/types/interfaces'
+// Components
+import DynamicForm from '../DynamicForm'
+// Imgs
+import googleLogo from '../../assets/icons/google-logo.svg'
 
 const LoginForm: React.FC = () => {
   const onSubmit = (data: any) => {

@@ -1,3 +1,13 @@
+/**
+ * Things to do here ->
+ *
+ * 1. Tags system for each task
+ * 2. Task ->
+ *           1. Projects
+ *           2. Descrition / Title / Subtitle / Tags / Logo
+ *           3. Opts -> Duplicate, delete, share to judge (People can judge and improve your routine)
+ *           4. Rename / Description
+ */
 // Dependencies
 import React, {
   createContext,

@@ -1,4 +1,6 @@
+// Dependencies
 import React, { useState } from 'react'
+// Components
 import ChatBox from './Chatbox'
 
 export interface Message {

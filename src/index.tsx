@@ -6,9 +6,9 @@ import reportWebVitals from './reportWebVitals'
 import './styles/index.scss'
 // Translation
 import './i18n'
-import { RouterProvider } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 // Routes
-import { router } from './router'
+import { RoutesComponent } from './router'
 // Components
 import Navbar from './components/Navbar'
 import BackToTopButton from './components/BackToTheTop'
@@ -17,14 +17,12 @@ import { cn } from './utils/magicUI'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <>
+  <BrowserRouter>
     <header>
       <Navbar />
     </header>
     <main className="flex flex-grow items-stretch">
-      <React.StrictMode>
-        <RouterProvider router={router} />
-      </React.StrictMode>
+      <RoutesComponent />
     </main>
     <DotsBackgroundComponent
       className={cn(
@@ -34,6 +32,6 @@ root.render(
     <footer>
       <BackToTopButton />
     </footer>
-  </>
+  </BrowserRouter>
 )
 reportWebVitals()

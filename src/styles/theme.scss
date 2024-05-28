@@ -13,11 +13,15 @@
 
 // Show/Hide Mobile Medium Size Screen
 .show-xs-hide-md {
-  @apply xs:hidden md:block;
+  @apply xs:block md:hidden;
+}
+
+.show-xs-hide-md-flex {
+  @apply xs:flex md:hidden;
 }
 
 .show-md-hide-xs {
-  @apply md:hidden xs:block;
+  @apply md:block xs:hidden;
 }
 
 // Forms Container

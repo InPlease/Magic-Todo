@@ -1,3 +1,4 @@
+// Dependencies
 import React, { useEffect, useRef } from 'react'
 import anime from 'animejs/lib/anime.es.js'
 
@@ -9,6 +10,7 @@ const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ loading }) => {
   const squareRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // TODO - Change this thing to framer motion
     if (loading) {
       anime({
         targets: squareRef.current,

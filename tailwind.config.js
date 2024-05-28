@@ -110,6 +110,7 @@ module.exports = {
         maxpage: '500px',
         'button-lg': '450px',
         'xs-button-lg': '256px',
+        fit: 'fit-content',
       },
       maxHeight: {
         maxpage: '500px',
@@ -120,9 +121,20 @@ module.exports = {
         gradient: 'gradient 8s linear infinite',
         pulse: 'pulse 2s infinite',
         'bounce-slow': 'bounce 3s infinite',
-        shimmer: 'shimmer 8s infinite',
+        'checkmark-special': 'checkmark-special 0.8s ease-in-out',
+        'task-complete': 'task-complete 1s ease-in-out forwards',
       },
       keyframes: {
+        'checkmark-special': {
+          '0%': { transform: 'scale(0.5)', opacity: 0 },
+          '50%': { transform: 'scale(1.2)', opacity: 1 },
+          '70%': { transform: 'scale(0.9)', opacity: 1 },
+          '100%': { transform: 'scale(1)', opacity: 1 },
+        },
+        'task-complete': {
+          '0%': { backgroundColor: 'rgba(31, 41, 55, 1)' }, // bg-gray-700
+          '100%': { backgroundColor: 'rgba(249, 115, 22, 1)' }, // bg-orange
+        },
         shimmer: {
           '0%, 90%, 100%': {
             'background-position': 'calc(-100% - var(--shimmer-width)) 0',
