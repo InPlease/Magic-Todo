@@ -1,5 +1,6 @@
 // Dependencies
 import { useState, useMemo } from 'react'
+
 const useSortedTasks = (tasks: any) => {
   const [sortOrder, setSortOrder] = useState<'latest' | 'oldest' | 'alpha'>(
     'latest'

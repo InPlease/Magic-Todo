@@ -6,6 +6,7 @@ import { ArrowUpLeft } from 'lucide-react'
 const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false)
   const { t } = useTranslation()
+
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
@@ -14,9 +15,11 @@ const BackToTopButton: React.FC = () => {
         setIsVisible(false)
       }
     }
+
     window.addEventListener('scroll', toggleVisibility)
     return () => window.removeEventListener('scroll', toggleVisibility)
   }, [])
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

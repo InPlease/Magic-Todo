@@ -1,3 +1,4 @@
+// Dependencies
 import { useLocation } from 'react-router-dom'
 
 export const useRouteVisibility = (pathsToHide: string[] = []) => {
@@ -8,4 +9,3 @@ export const useRouteVisibility = (pathsToHide: string[] = []) => {
 
   return isVisible
 }
-

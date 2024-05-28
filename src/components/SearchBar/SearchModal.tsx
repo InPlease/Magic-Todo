@@ -1,6 +1,16 @@
+/**
+ *  <li key={index} className="p-2 border border-gray-200 rounded-lg">
+        {result}
+    </li>
+
+    Here is where we will render the elements of the menu, we need to
+    create another component for it
+ */
+// Dependencies
 import { useState, ChangeEvent, FC, useRef, useEffect } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { useTranslation } from 'react-i18next'
+// Components
 import HotKeyIconComponent from '../HotKeyIconComponent'
 
 interface SearchModalProps {
@@ -15,7 +25,7 @@ const SearchModal: FC<SearchModalProps> = ({ onClose }) => {
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setSearchQuery(event.target.value)
-    // Implement your search logic here and update results`
+    // TODO - Implement your search logic here and update results`
   }
 
   useEffect(() => {
@@ -48,7 +58,7 @@ const SearchModal: FC<SearchModalProps> = ({ onClose }) => {
           />
         </div>
         <ul className="mt-4 space-y-2">
-          {results.length === 0 ? (
+          {!results.length ? (
             <li className="text-white">{t('search_modal_no_results')}</li>
           ) : (
             results.map((result, index) => (

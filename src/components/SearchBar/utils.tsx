@@ -1,4 +1,10 @@
-// utils.ts
+/**
+ * @description
+ * This utils are section utils in components
+ * it means are no general and we only use them
+ * for specific components
+ */
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface CommandOption {
@@ -37,11 +43,13 @@ const searchTypos = [
 const handleCreateCommand = (correctedQuery: string): void => {
   const taskName = correctedQuery.replace('/create:', '').trim()
   if (taskName) {
+    // TODO - Create functionality
     alert(`Creating task: ${taskName}`)
   }
 }
 
 const handleSearchCommand = (): void => {
+  // TODO - Create search functionality
   alert('Opening search modal...')
 }
 
@@ -64,7 +72,7 @@ const fuzzyMatchCommand = (input: string): string => {
   return input
 }
 
-const suggetionsExamples: any = [
+const suggetionsExamples: React.FC[] = [
   () => {
     const { t } = useTranslation()
     return (

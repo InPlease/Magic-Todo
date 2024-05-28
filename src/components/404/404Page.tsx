@@ -1,8 +1,11 @@
+// Dependencies
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import NotRouteFound from '../../assets/image/404-image.webp'
+// Components
 import WorldPullUpComponent from '../Effects/WorldPullUpComponent'
+// Img
+import NotRouteFound from '../../assets/image/404-image.webp'
 
 const NotFoundPage: React.FC = () => {
   const { t } = useTranslation()

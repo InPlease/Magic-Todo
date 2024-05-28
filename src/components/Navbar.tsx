@@ -2,8 +2,10 @@
 import React from 'react'
 import { Languages } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+// Components
 import LogoComponent from './LogoComponent'
-import CommandSearchBar from './SearchBar/SearchBarComponent' // Adjust the import path as needed
+import CommandSearchBar from './SearchBar/SearchBarComponent'
+// Hooks
 import { useRouteVisibility } from '../hooks/useRouteVisibility'
 
 const ErrorImage: React.FC = () => {
@@ -23,7 +25,6 @@ const ErrorImage: React.FC = () => {
     <nav>
       <div className="xs:flex-col md:flex-row max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <LogoComponent />
-
         {isComponentVisible && (
           <>
             <div className="show-md-hide-xs flex-grow-[.9]">
@@ -31,7 +32,6 @@ const ErrorImage: React.FC = () => {
             </div>
           </>
         )}
-
         <div className="show-xs-hide-md-flex w-full space-x-5 justify-center items-center">
           {isComponentVisible && <CommandSearchBar />}
           <div id="navbar-default">

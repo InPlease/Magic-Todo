@@ -1,5 +1,7 @@
-import React, { useState, ChangeEvent, KeyboardEvent, FC } from 'react'
+// Dependencies
+import { useState, ChangeEvent, KeyboardEvent, FC } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
+// Utils
 import {
   commandOptions,
   commandHandlers,
@@ -8,6 +10,7 @@ import {
   fuzzyMatchCommand,
   suggetionsExamples,
 } from './utils'
+// Components
 import SearchModal from './SearchModal'
 
 const CommandSearchBar: FC = () => {
@@ -23,9 +26,9 @@ const CommandSearchBar: FC = () => {
     if (input.startsWith('/')) {
       setSuggestions(getSuggestions(input))
       setHighlightedIndex(-1)
-    } else {
-      setSuggestions([])
+      return
     }
+    setSuggestions([])
   }
 
   const handleSearchCommand = (): void => {
@@ -33,6 +36,7 @@ const CommandSearchBar: FC = () => {
   }
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>): void => {
+    // TODO - refactor this thing, a lot of nested if (bad practice)
     if (event.key === 'Enter') {
       event.preventDefault()
       if (highlightedIndex >= 0) {
@@ -60,17 +64,14 @@ const CommandSearchBar: FC = () => {
         const command = commandOptions.find((opt) =>
           correctedQuery.startsWith(opt.command)
         )
+
         if (command) {
-          if (command.executeImmediately) {
-            if (command.command === '/search') {
-              handleSearchCommand()
-            } else {
-              commandHandlers[command.command]('')
-            }
-            setQuery('')
-          } else {
-            commandHandlers[command.command](correctedQuery)
-          }
+          const { executeImmediately, command: cmd } = command
+          const executeCommand =
+            cmd === '/search' ? handleSearchCommand : commandHandlers[cmd]
+
+          executeCommand(executeImmediately ? '' : correctedQuery)
+          if (executeImmediately) setQuery('')
         }
 
         setQuery('')
@@ -131,6 +132,7 @@ const CommandSearchBar: FC = () => {
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       />
+      {/* Section that generates the suggestions for the search bar */}
       {suggestions.length > 0 && (
         <ul className="mt-[10px] rounded-default absolute z-10 bg-gray text-white border shadow-lg w-full">
           {suggestions.map((suggestion, index) => {
@@ -138,7 +140,6 @@ const CommandSearchBar: FC = () => {
             const selectedOption = commandOptions.find(
               (opt) => opt.command === suggestion
             )
-
             return (
               <li
                 key={index}

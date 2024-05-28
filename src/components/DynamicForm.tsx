@@ -2,10 +2,8 @@
 import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-
 // Components
 import AnimatedShinyTextComponent from './Effects/AnimatedShinyButtonComponent'
-
 // Define types for props and form config
 import { DynamicFormProps } from '../utils/types/interfaces'
 
